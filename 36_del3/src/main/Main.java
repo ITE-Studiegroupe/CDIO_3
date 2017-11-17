@@ -12,7 +12,7 @@ public class Main {
 		System.out.println("test monica 123");
 		//test 123 rrrrrrrr
 		// test 222
-		//hej med dig
+		//hej med dig djeiwcjioeæ
 		
 	}
 
