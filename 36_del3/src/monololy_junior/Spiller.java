@@ -24,7 +24,12 @@ public class Spiller {
 		else {
 			return false;
 		}
+		
 	}
+	public void setDød(boolean erDød) {
+		this.erDød = erDød;
+	}
+	
 	
 	
 	
