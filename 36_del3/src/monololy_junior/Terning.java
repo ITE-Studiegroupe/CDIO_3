@@ -10,7 +10,7 @@ public class Terning {
 		
 	}
 	
-	public int getSum() {
+	public int getVærdi() {
 		kast();
 		return antalØjne;
 	}
