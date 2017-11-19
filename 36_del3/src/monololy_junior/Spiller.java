@@ -17,6 +17,14 @@ public class Spiller {
 		this.spillerNavn = spillerNavn;
 	}
 	
+	public boolean tjekOmDød() {
+		if(erDød) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 	
 	
