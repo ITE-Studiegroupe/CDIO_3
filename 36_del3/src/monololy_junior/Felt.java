@@ -8,6 +8,7 @@ public class Felt {
 	private Spiller feltEjer;
 	private boolean feltHarEjer;
 	private int feltType;
+	private String feltNavn;
 	
 	public void setVærdi(int feltVærdi) {
 		this.feltVærdi = feltVærdi;
@@ -19,6 +20,14 @@ public class Felt {
 	
 	public void setFeltFarve(Color feltFarve) {
 		this.feltFarve = feltFarve;
+	}
+
+	public String getFeltNavn() {
+		return feltNavn;
+	}
+
+	public void setFeltNavn(String feltNavn) {
+		this.feltNavn = feltNavn;
 	}
 
 	public Color getFeltFarve() {
