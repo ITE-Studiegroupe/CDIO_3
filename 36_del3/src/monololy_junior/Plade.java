@@ -12,7 +12,6 @@ public class Plade {
 	 * 2. felter der kan købes eller ejes af nogen 
 	 * 3. felter der er chancekort 
 	 * 4. felter hvor man får penge (start) 
-	 * 
 	 */
 	
 

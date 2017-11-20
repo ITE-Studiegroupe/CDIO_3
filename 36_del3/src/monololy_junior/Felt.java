@@ -2,7 +2,6 @@ package monololy_junior;
 
 import java.awt.Color;
 
-
 public class Felt {
 	private int feltVærdi;
 	private Color feltFarve;
