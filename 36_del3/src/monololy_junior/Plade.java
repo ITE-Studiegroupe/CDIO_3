@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class Plade {
 	private int antalFelter;
-	private Chancekort[] chancekort;
+	private Chancekort[] chancekort = new Chancekort[8];
 	private Felt[] felter = new Felt[24];
 
 	/**
@@ -162,9 +162,25 @@ public class Plade {
 		felter[23].setFeltFarve(Color.BLUE);
 		felter[23].setVærdi(5);
 		felter[23].setFeltType(2);
-	}
-	
-	
-	
+		}
 
+	public void bygChancekort() {
+		
+		chancekort[0] = new Chancekort(3, 1, "Du skylder banken penge! Betal 3kr.");
+		
+		chancekort[1] = new Chancekort(20, 3, "Du har lyst til at se på dyr, ryk til Zoo");
+		
+		chancekort[2] = new Chancekort(4, 1, "Banken har fødselsdag, betal 4kr.");
+		
+		chancekort[3] = new Chancekort(13, 3, "Du vil spille på flippermaskiner, ryk til Spillehallen");
+		
+		chancekort[4] = new Chancekort(6, 3, "Du er kæmpe fan af Egon Olsen, ryk til Fængsel");
+		
+		chancekort[5] = new Chancekort(1, 2, "Du har fundet 1kr på gaden, det er den lykkedag! Du får 1kr.");
+		
+		chancekort[6] = new Chancekort(2, 2, "Du har smadret din sparegris. Du får 2kr.");
+		
+		chancekort[7] = new Chancekort(4, 2, "Du har solgt din javabog. Du får 4kr.");
+			
+		}
 }
