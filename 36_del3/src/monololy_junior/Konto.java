@@ -10,18 +10,17 @@ public class Konto {
 	public void setPengeBeholdning(int pengeBeholdning) {
 		this.pengeBeholdning = pengeBeholdning;
 	}
-	
+
 	public boolean indsætPenge(int beløb) {
-		int tjek = pengeBeholdning + beløb ;
+		int tjek = pengeBeholdning + beløb;
 		boolean resultat;
-		if(tjek<0) {
+		if (tjek < 0) {
 			resultat = false;
-					}
-		else {
+		} else {
 			this.pengeBeholdning = tjek;
 			resultat = true;
 		}
-	return resultat;
+		return resultat;
 	}
 
 }
