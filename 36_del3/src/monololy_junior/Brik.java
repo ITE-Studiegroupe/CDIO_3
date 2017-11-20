@@ -3,21 +3,24 @@ package monololy_junior;
 import java.awt.Color;
 
 public class Brik {
-	private int placering; 
-	private Color farve;
-	public int getPlacering() {
-		return placering;
-	}
-	public void setPlacering(int placering) {
-		this.placering = placering;
-	}
-	public Color getFarve() {
-		return farve;
-	}
-	public void setFarve(Color farve) {
-		this.farve = farve;
+	
+	private Color brikFarve;
+	private int brikPlacering;
+	
+	public Color getBrikFarve() {
+		return brikFarve;
 	}
 	
+	public void setBrikFarve(Color brikFarve) {
+		this.brikFarve = brikFarve;
+	}
 	
-
+	public int getBrikPlacering() {
+		return brikPlacering;
+	}
+	
+	public void setBrikPlacering(int brikPlacering) {
+		this.brikPlacering = brikPlacering;
+	} 
+	
 }
