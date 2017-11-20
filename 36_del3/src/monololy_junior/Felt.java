@@ -16,17 +16,40 @@ public class Felt {
 	public int getVærdi() {
 		return feltVærdi;
 	}
+	
+	public void setFeltFarve(Color feltFarve) {
+		this.feltFarve = feltFarve;
+	}
 
 	public Color getFeltFarve() {
 		return feltFarve;
 	}
 
-	public void setFeltFarve(Color feltFarve) {
-		this.feltFarve = feltFarve;
+	public Spiller getFeltEjer() {
+		return feltEjer;
+	}
+
+	public void setFeltEjer(Spiller feltEjer) {
+		this.feltEjer = feltEjer;
+	}
+
+	public boolean isFeltHarEjer() {
+		return feltHarEjer;
+	}
+
+	public void setFeltHarEjer(boolean feltHarEjer) {
+		this.feltHarEjer = feltHarEjer;
+	}
+
+	public int getFeltType() {
+		return feltType;
+	}
+
+	public void setFeltType(int feltType) {
+		this.feltType = feltType;
 	}
 	
-	
-	
+
 	
 
 }
