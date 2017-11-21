@@ -120,8 +120,28 @@ public class GUIFører {
 	public Color visVælgFarve(Spiller spiller) {
 		String navn = spiller.getSpillerNavn();
 		String besked = navn +", vælg din bils farve.";
+		String[] farverStreng = new String[] {"Blå", "Rød", "Grøn", "Pink", "Gul", "Sort", "Hvid"};
+		Color[] farver = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.PINK, Color.YELLOW,
+				Color.BLACK, Color.WHITE};
+		Color farve = Color.WHITE;
 		
-		String valg = gui.getUserSelection(besked, "kage","mælk");
-		return Color.pink;
+		String valg = gui.getUserSelection(besked, 
+				farverStreng[0],
+				farverStreng[1],
+				farverStreng[2],
+				farverStreng[3],
+				farverStreng[4],
+				farverStreng[5],
+				farverStreng[6]);
+		
+		for (int i = 0; i < farver.length; i++) {
+			if (valg.equals(farverStreng[i])) {
+				farve = farver[i];
+				break;
+			}
+		}
+		
+		
+		return farve;
 	}
 }
