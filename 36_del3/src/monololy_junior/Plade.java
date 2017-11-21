@@ -195,4 +195,12 @@ public class Plade {
 		chancekort[7] = new Chancekort(4, 2, "Du har solgt din javabog. Du får 4kr.");
 			
 		}
+	/**
+	 * Træk et random chancekort
+	 */
+		public  Chancekort trækChancekort() {
+		int trukketChancekort = ((int) (Math.random()*chancekort.length));
+		return chancekort[trukketChancekort];
+		
+	}
 }
