@@ -3,6 +3,15 @@ package monololy_junior;
 import java.awt.Color;
 
 public class Felt {
+	
+	/**
+	 * Denne klasse har til formål holde styr på felterne.
+	 * 
+	 * @author Gruppe 36
+	 * @category Information expert
+	 *
+	 */
+	
 	private int feltVærdi;
 	private Color feltFarve;
 	private Spiller feltEjer;
@@ -57,8 +66,4 @@ public class Felt {
 	public void setFeltType(int feltType) {
 		this.feltType = feltType;
 	}
-	
-
-	
-
 }
