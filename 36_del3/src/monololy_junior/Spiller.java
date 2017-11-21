@@ -47,6 +47,7 @@ public class Spiller {
 	 * der ikke ejes af nogen. Hvis der ikke er en ejer tilføjes/købes 
 	 * feltet af spilleren. Hvis en spiller har et andet felt i forvejen
 	 * med samme farve, ændres værdien af den to felter med det dobbelte.
+	 * Med klassen Arrays fra java.util bruger vi en metode til at kopiere et array.
 	 */
 	
 	public void tilføjFelt(Felt spillerFelt) {
@@ -60,6 +61,7 @@ public class Spiller {
 	 * 
 	 * @param Tager i mod det felt som købes af spillereren.
 	 * Checker om spilleren har to ens felter.
+	 * Vi bruger klassen Color til at holde styr på felternes farver.
 	 */
 
 	private void checkToEns(Felt købtFelt) {
