@@ -3,6 +3,16 @@ package monololy_junior;
 import java.awt.Color;
 
 public class Plade {
+	
+	/**
+	 * Denne klasse har til formål at holde på informationer omkring de 24 forskellige felter 
+	 * og de 8 chancekort.
+	 * 
+	 * @author Gruppe 36
+	 * @category Information expert
+	 *
+	 */
+	
 	private int antalFelter;
 	private Chancekort[] chancekort = new Chancekort[8];
 	private Felt[] felter = new Felt[24];
@@ -195,4 +205,10 @@ public class Plade {
 		chancekort[7] = new Chancekort(4, 2, "Du har solgt din javabog. Du får 4kr.");
 			
 		}
+	public Chancekort trækChancekort() {
+		int talMellem07;
+		talMellem07 =(int)(Math.random()*7+1);
+		return chancekort[talMellem07];
+		
+	}
 }
