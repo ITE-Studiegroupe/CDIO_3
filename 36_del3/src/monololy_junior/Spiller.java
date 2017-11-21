@@ -33,4 +33,20 @@ public class Spiller {
 			}
 		}
 	}
+	
+	public Brik getBrik() {
+		return brik;
+	}
+
+	public void setBrik(Brik brik) {
+		this.brik = brik;
+	}
+
+	public void setKonto(Konto konto) {
+		this.konto = konto;
+	}
+
+	public Konto getKonto() {
+		return konto;
+	}
 }
