@@ -1,4 +1,5 @@
 package monololy_junior;
+
 import java.awt.Color;
 import java.util.Arrays;
 
@@ -17,23 +18,29 @@ public class Spiller {
 	}
 
 	public void tilføjFelt(Felt spillerFelt) {
+		checkToEns(spillerFelt);
 		Felt[] nytFelt = Arrays.copyOf(ejetFelter, ejetFelter.length + 1);
-		nytFelt[nytFelt.length-1] = spillerFelt;
-		Felt[] ejetFelter = nytFelt;
+		nytFelt[nytFelt.length - 1] = spillerFelt;
+		ejetFelter = nytFelt;
 	}
-	
-	public void checkToEns(Felt købtFelt) {
-		for(int i = 1;i<ejetFelter.length;i++) {
+
+	private void checkToEns(Felt købtFelt) {
+		for (int i = 1; i < ejetFelter.length; i++) {
 			Color farve1 = ejetFelter[i].getFeltFarve();
 			Color farve2 = købtFelt.getFeltFarve();
-			if(farve1.getRGB()==farve2.getRGB()) {
-				int købtFeltVærdi = købtFelt.getVærdi()*2;
-				købtFelt.setVærdi(købtFeltVærdi);
-				ejetFelter[i].setVærdi(købtFeltVærdi);
+			if (farve1.getRGB() == farve2.getRGB()) {
+				forøgVærdi(ejetFelter[i]);
+				forøgVærdi(købtFelt);
 			}
 		}
 	}
-	
+
+	private void forøgVærdi(Felt købtFelt) {
+		int forøget = købtFelt.getVærdi() * 2;
+		købtFelt.setVærdi(forøget);
+
+	}
+
 	public Brik getBrik() {
 		return brik;
 	}
