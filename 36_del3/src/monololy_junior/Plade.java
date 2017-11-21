@@ -14,9 +14,14 @@ public class Plade {
 	 * 4. felter hvor man får penge (start) 
 	 */
 	
+	public void bygPlade() {
+		bygFelter();
+		bygChancekort();
+		
+	}
 
 	//Bygfelter metode
-	public void bygFelter() {
+	private void bygFelter() {
 		
 		
 		felter[0] = new Felt();
@@ -171,7 +176,7 @@ public class Plade {
 	 * 3. ryk felter <br>
 	 */
 
-	public void bygChancekort() {
+	private void bygChancekort() {
 		
 		chancekort[0] = new Chancekort(3, 1, "Du skylder banken penge! Betal 3kr.");
 		
