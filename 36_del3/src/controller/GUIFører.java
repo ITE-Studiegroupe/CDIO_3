@@ -144,4 +144,23 @@ public class GUIFører {
 		
 		return farve;
 	}
+	
+	public int visVælgAntalSpillere() {
+		String besked = "Vælg antal spillere.";
+
+		return Integer.parseInt(gui.getUserSelection(besked, "2","3","4"));
+	}
+	
+	public String visIndtastNavn() {
+		String besked = "Indtast dit navn";
+		
+		return gui.getUserString(besked);
+	}
+	
+	public void visKastTerninger(Spiller spiller) {
+		String navn = spiller.getSpillerNavn();
+		String besked = navn+", din tur til at kaste";
+		
+		gui.getUserButtonPressed(besked, "Kast");
+	}
 }
