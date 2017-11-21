@@ -3,6 +3,8 @@ package monololy_junior;
 import java.awt.Color;
 import java.util.Arrays;
 
+import monololy_junior.felter.Felt_Forretning;
+
 /**
  * Denne klasse har til formål styre spillerne i spillet.
  * 
@@ -13,7 +15,7 @@ import java.util.Arrays;
 
 public class Spiller {
 	private String spillerNavn;
-	private Felt[] ejetFelter;
+	private Felt_Forretning[] ejetFelter;
 	private Konto konto;
 	private Brik brik;
 
@@ -50,9 +52,9 @@ public class Spiller {
 	 * Med klassen Arrays fra java.util bruger vi en metode til at kopiere et array.
 	 */
 	
-	public void tilføjFelt(Felt spillerFelt) {
+	public void tilføjFelt(Felt_Forretning spillerFelt) {
 		checkToEns(spillerFelt);
-		Felt[] nytFelt = Arrays.copyOf(ejetFelter, ejetFelter.length + 1);
+		Felt_Forretning[] nytFelt = Arrays.copyOf(ejetFelter, ejetFelter.length + 1);
 		nytFelt[nytFelt.length - 1] = spillerFelt;
 		ejetFelter = nytFelt;
 	}
@@ -64,10 +66,10 @@ public class Spiller {
 	 * Vi bruger klassen Color til at holde styr på felternes farver.
 	 */
 
-	private void checkToEns(Felt købtFelt) {
+	private void checkToEns(Felt_Forretning købtFelt) {
 		for (int i = 1; i < ejetFelter.length; i++) {
-			Color farve1 = ejetFelter[i].getFeltFarve();
-			Color farve2 = købtFelt.getFeltFarve();
+			Color farve1 = ejetFelter[i].getBgFarve();
+			Color farve2 = købtFelt.getBgFarve();
 			if (farve1.getRGB() == farve2.getRGB()) {
 				forøgVærdi(ejetFelter[i]);
 				forøgVærdi(købtFelt);
@@ -80,9 +82,9 @@ public class Spiller {
 	 * Forøger værdien af de to felter med samme farve til det dobbelte.
 	 */
 
-	private void forøgVærdi(Felt købtFelt) {
-		int forøget = købtFelt.getVærdi() * 2;
-		købtFelt.setVærdi(forøget);
+	private void forøgVærdi(Felt_Forretning købtFelt) {
+		int forøget = købtFelt.getPris() * 2;
+		købtFelt.setPris(forøget);
 
 	}
 

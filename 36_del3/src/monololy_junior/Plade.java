@@ -2,6 +2,14 @@ package monololy_junior;
 
 import java.awt.Color;
 
+import controller.GUIFører;
+import monololy_junior.felter.Felt;
+import monololy_junior.felter.Felt_Chance;
+import monololy_junior.felter.Felt_Forretning;
+import monololy_junior.felter.Felt_Fængsel;
+import monololy_junior.felter.Felt_Helle;
+import monololy_junior.felter.Felt_Start;
+
 public class Plade {
 	
 	/**
@@ -16,7 +24,8 @@ public class Plade {
 	private int antalFelter;
 	private Chancekort[] chancekort = new Chancekort[8];
 	private Felt[] felter = new Felt[24];
-
+	private GUIFører guiFører = new GUIFører();
+	
 	/**
 	 * 1. felter hvor der ikke sker noget 
 	 * 2. felter der kan købes eller ejes af nogen 
@@ -28,155 +37,60 @@ public class Plade {
 		bygFelter();
 		bygChancekort();
 		
+		guiFører.skabGUI(felter);
+		
 	}
 
 	//Bygfelter metode
 	private void bygFelter() {
 		
+		felter[0] = new Felt_Start("Start!", 4, Color.WHITE, Color.BLACK);
 		
-		felter[0] = new Felt();
-		felter[0].setFeltNavn("Start!");
-		felter[0].setFeltFarve(Color.WHITE);
-		felter[0].setVærdi(0);
-		felter[0].setFeltType(4);
+		felter[1] = new Felt_Forretning("Burgerbaren", 1, Color.RED, Color.BLACK);
 		
-		felter[1] = new Felt();
-		felter[1].setFeltNavn("Burgerbaren");
-		felter[1].setFeltFarve(Color.red);
-		felter[1].setVærdi(1); //prisen på feltet
-		felter[1].setFeltType(2);
+		felter[2] = new Felt_Forretning("Pizzahuset", 1, Color.RED, Color.BLACK);
 		
-		felter[2] = new Felt();
-		felter[2].setFeltNavn("Pizzahuset");
-		felter[2].setFeltFarve(Color.red);
-		felter[2].setVærdi(1); //prisen på feltet
-		felter[2].setFeltType(2);
+		felter[3] = new Felt_Chance("Chancekort", Color.GRAY, Color.ORANGE);
 		
-		felter[3] = new Felt();
-		felter[3].setFeltNavn("Chancekort");
-		felter[3].setFeltFarve(Color.WHITE);
-		felter[3].setVærdi(0);
-		felter[3].setFeltType(3);
+		felter[4] = new Felt_Forretning("Slikbutikken", 1, Color.BLUE, Color.BLACK);
 		
-		felter[4] = new Felt();
-		felter[4].setFeltNavn("Slikbutikken");
-		felter[4].setFeltFarve(Color.BLUE);
-		felter[4].setVærdi(1); //prisen på feltet
-		felter[4].setFeltType(2);
+		felter[5] = new Felt_Forretning("Iskiosken", 1, Color.BLUE, Color.BLACK);
 		
-		felter[5] = new Felt();
-		felter[5].setFeltNavn("Iskiosken");
-		felter[5].setFeltFarve(Color.BLUE);
-		felter[5].setVærdi(1);
-		felter[5].setFeltType(2);
+		felter[6] = new Felt_Fængsel("Fængslet", "forklaring", true, Color.BLACK, Color.WHITE);
 		
-		felter[6] = new Felt();
-		felter[6].setFeltNavn("Fængslet");
-		felter[6].setFeltFarve(Color.BLACK);
-		felter[6].setVærdi(0); //prisen på feltet
-		felter[6].setFeltType(1);
-	
-		felter[7] = new Felt();
-		felter[7].setFeltNavn("Museet");
-		felter[7].setFeltFarve(Color.PINK);
-		felter[7].setVærdi(2); //prisen på feltet
-		felter[7].setFeltType(2);
+		felter[7] = new Felt_Forretning("Museet", 2, Color.PINK, Color.BLACK);
 		
-		felter[8] = new Felt();
-		felter[8].setFeltNavn("Biblioteket");
-		felter[8].setFeltFarve(Color.PINK);
-		felter[8].setVærdi(2);
-		felter[8].setFeltType(2);
+		felter[8] = new Felt_Forretning("Biblioteket", 2, Color.PINK, Color.BLACK);
 		
-		felter[9] = new Felt();
-		felter[9].setFeltNavn("Chancekort");
-		felter[9].setFeltFarve(Color.WHITE);
-		felter[9].setVærdi(0);
-		felter[9].setFeltType(3);
+		felter[9] = new Felt_Chance("Chancekort", Color.GRAY, Color.ORANGE);
 		
-		felter[10] = new Felt();
-		felter[10].setFeltNavn("Skaterparken");
-		felter[10].setFeltFarve(Color.YELLOW);
-		felter[10].setVærdi(2); //prisen på feltet
-		felter[10].setFeltType(2);
+		felter[10] = new Felt_Forretning("Skaterparken", 2, Color.YELLOW, Color.BLACK);
 		
-		felter[11] = new Felt();
-		felter[11].setFeltNavn("Swimmingpoolen");
-		felter[11].setFeltFarve(Color.YELLOW);
-		felter[11].setVærdi(2); //prisen på feltet
-		felter[11].setFeltType(2);
+		felter[11] = new Felt_Forretning("Swimmingpoolen", 2, Color.YELLOW, Color.BLACK);
 		
-		felter[12] = new Felt();
-		felter[12].setFeltNavn("Gratis parkering");
-		felter[12].setFeltFarve(Color.WHITE);
-		felter[12].setVærdi(0);
-		felter[12].setFeltType(4);
+		felter[12] = new Felt_Helle("Gratis parkering", Color.WHITE, Color.BLACK);
 		
-		felter[13] = new Felt();
-		felter[13].setFeltNavn("Spillehallen");
-		felter[13].setFeltFarve(Color.ORANGE);
-		felter[13].setVærdi(3);
-		felter[13].setFeltType(2);
+		felter[13] = new Felt_Forretning("Spillehallen", 3, Color.ORANGE, Color.BLACK);
 		
-		felter[14] = new Felt();
-		felter[14].setFeltNavn("Biogragen");
-		felter[14].setFeltFarve(Color.ORANGE);
-		felter[14].setVærdi(3); //prisen på feltet
-		felter[14].setFeltType(2);
+		felter[14] = new Felt_Forretning("Biografen", 3, Color.ORANGE, Color.BLACK);
 		
-		felter[15] = new Felt();
-		felter[15].setFeltNavn("Chancekort");
-		felter[15].setFeltFarve(Color.WHITE);
-		felter[15].setVærdi(0);
-		felter[15].setFeltType(3);
+		felter[15] = new Felt_Chance("Chancekort", Color.GRAY, Color.ORANGE);
 		
-		felter[16] = new Felt();
-		felter[16].setFeltNavn("Legetøjsbutikken");
-		felter[16].setFeltFarve(Color.CYAN);
-		felter[16].setVærdi(3); //prisen på feltet
-		felter[16].setFeltType(2);
+		felter[16] = new Felt_Forretning("Legetøjsbutikken", 3, Color.CYAN, Color.BLACK);
 		
-		felter[17] = new Felt();
-		felter[17].setFeltNavn("Dyrehandelen");
-		felter[17].setFeltFarve(Color.CYAN);
-		felter[17].setVærdi(3);
-		felter[17].setFeltType(2);
+		felter[17] = new Felt_Forretning("Dyrehandelen", 3, Color.CYAN, Color.BLACK);
 		
-		felter[18] = new Felt();
-		felter[18].setFeltNavn("Gå i fængslet");
-		felter[18].setFeltFarve(Color.BLACK);
-		felter[18].setVærdi(0); //prisen på feltet
-		felter[18].setFeltType(1);
+		felter[18] = new Felt_Fængsel("Gå i fængslet", "", false, Color.BLACK, Color.WHITE);
 		
-		felter[19] = new Felt();
-		felter[19].setFeltNavn("Bowlinghallen");
-		felter[19].setFeltFarve(Color.GREEN);
-		felter[19].setVærdi(4);
-		felter[19].setFeltType(2);
+		felter[19] = new Felt_Forretning("Bowlinghallen", 4, Color.GREEN, Color.BLACK);
 		
-		felter[20] = new Felt();
-		felter[20].setFeltNavn("Zoo");
-		felter[20].setFeltFarve(Color.GREEN);
-		felter[20].setVærdi(4); //prisen på feltet
-		felter[20].setFeltType(2);
+		felter[20] = new Felt_Forretning("Zoo", 4, Color.GREEN, Color.BLACK);
 		
-		felter[21] = new Felt();
-		felter[21].setFeltNavn("Chancekort");
-		felter[21].setFeltFarve(Color.WHITE);
-		felter[21].setVærdi(0);
-		felter[21].setFeltType(3);
+		felter[21] = new Felt_Chance("Chancekort", Color.GRAY, Color.ORANGE);
 		
-		felter[22] = new Felt();
-		felter[22].setFeltNavn("Vandlandet");
-		felter[22].setFeltFarve(Color.BLUE);
-		felter[22].setVærdi(4); //prisen på feltet
-		felter[22].setFeltType(2);
+		felter[22] = new Felt_Forretning("Vandlandet", 4, Color.BLUE, Color.BLACK);
 		
-		felter[23] = new Felt();
-		felter[23].setFeltNavn("Strandpromenaden");
-		felter[23].setFeltFarve(Color.BLUE);
-		felter[23].setVærdi(5);
-		felter[23].setFeltType(2);
+		felter[23] = new Felt_Forretning("Strandpromenaden", 4, Color.BLUE, Color.BLACK);
 		}
 	
 	/**

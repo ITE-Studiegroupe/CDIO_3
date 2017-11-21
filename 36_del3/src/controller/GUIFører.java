@@ -5,6 +5,7 @@ import java.awt.Color;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Jail;
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
@@ -12,9 +13,13 @@ import gui_fields.GUI_Street;
 import gui_main.GUI;
 import monololy_junior.Brik;
 import monololy_junior.Chancekort;
-import monololy_junior.Felt;
 import monololy_junior.Konto;
 import monololy_junior.Spiller;
+import monololy_junior.felter.Felt;
+import monololy_junior.felter.Felt_Chance;
+import monololy_junior.felter.Felt_Forretning;
+import monololy_junior.felter.Felt_Fængsel;
+import monololy_junior.felter.Felt_Start;
 
 public class GUIFører {
 	private final int[] FRA40TIL24 = new int[] { 0, 1, 1, 2, 2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12,
@@ -37,48 +42,49 @@ public class GUIFører {
 	private void skabFelter(Felt[] felter) {
 
 		Felt felt;
-		int type;
 		int konverteret;
 		for (int i = 0; i < guiFelter.length; i++) {
+			
 			konverteret = FRA40TIL24[i];
 			felt = felter[konverteret];
-			type = felt.getFeltType();
-
-			switch(type) {
-			case 1: //felter hvor der ikke sker noget
-				guiFelter[i] = new GUI_Refuge();
-				guiFelter[i].setBackGroundColor(felt.getFeltFarve());
-				guiFelter[i].setSubText(felt.getFeltNavn());
-				break;
-
-			case 2: //felter der kan købes eller ejes af nogen
+			
+			if (felt instanceof Felt_Forretning) {
 				guiFelter[i] = new GUI_Street(
 						felt.getFeltNavn(),
-						felt.getVærdi()+"kr.",
+						((Felt_Forretning) felt).getPris()+"kr.",
 						"", 
-						felt.getVærdi()+"kr.", 
-						felt.getFeltFarve(),
-						Color.black);
-				break;
-
-			case 3: //felter der er chancekort 
+						((Felt_Forretning) felt).getPris()+"kr.", 
+						felt.getBgFarve(),
+						felt.getTekstFarve());
+			}
+			else if (felt instanceof Felt_Chance) {
 				guiFelter[i] = new GUI_Chance(
 						"?",
 						felt.getFeltNavn(),
 						"",
-						felt.getFeltFarve(),
-						Color.orange);
-				break;
-
-			case 4: //felter hvor man får penge (start) 
+						felt.getBgFarve(),
+						felt.getTekstFarve());
+			}
+			else if (felt instanceof Felt_Fængsel) {
+				guiFelter[i] = new GUI_Jail();
+				guiFelter[i].setSubText(felt.getFeltNavn());
+				guiFelter[i].setBackGroundColor(felt.getBgFarve());
+				guiFelter[i].setForeGroundColor(felt.getTekstFarve());
+				guiFelter[i].setDescription(((Felt_Fængsel)felt).getForklaring());
+			}
+			else if (felt instanceof Felt_Start) {
 				guiFelter[i] = new GUI_Start(
 						felt.getFeltNavn(),
-						"modtag 2kr.",
+						"modtag "+((Felt_Start)felt).getPræmie()+"kr.",
 						"",
-						felt.getFeltFarve(),
-						Color.black);
-				break;
-
+						felt.getBgFarve(),
+						felt.getTekstFarve());
+			}
+			else {
+				guiFelter[i] = new GUI_Refuge();
+				guiFelter[i].setBackGroundColor(felt.getBgFarve());
+				guiFelter[i].setForeGroundColor(felt.getTekstFarve());
+				guiFelter[i].setSubText(felt.getFeltNavn());
 			}
 		}
 	}
