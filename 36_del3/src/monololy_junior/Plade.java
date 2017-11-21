@@ -163,6 +163,13 @@ public class Plade {
 		felter[23].setVærdi(5);
 		felter[23].setFeltType(2);
 		}
+	
+	/**
+	 * Typer af chancekort:<br> 
+	 * 1. betal penge <br>
+	 * 2. få penge <br>
+	 * 3. ryk felter <br>
+	 */
 
 	public void bygChancekort() {
 		
