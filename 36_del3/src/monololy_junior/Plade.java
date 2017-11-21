@@ -197,6 +197,7 @@ public class Plade {
 		}
 	/**
 	 * Træk et random chancekort
+	 * 
 	 */
 		public  Chancekort trækChancekort() {
 		int trukketChancekort = ((int) (Math.random()*chancekort.length));
