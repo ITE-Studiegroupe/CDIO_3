@@ -22,50 +22,20 @@ public class GUIFører {
 
 	private final int[] FRA24TIL40 = new int[] { 0, 2, 4, 5, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 24, 25, 27, 29,
 			30, 32, 34, 35, 37, 39 };
-	
+
 	private GUI_Field[] guiFelter = new GUI_Field[40];
 	GUI_Player[] guiSpillere;
 	GUI gui;
-	
-	
-	public void skabGUI(Felt[] felter, Chancekort[] kort) {
-		skabChanceKort(kort);
+
+
+	public void skabGUI(Felt[] felter) {
 		skabFelter(felter);
-		
+
 		gui = new GUI(guiFelter);
 	}
-	
-	public void skabSpillere(Spiller[] spillere) {
-		int antalSpillere = spillere.length;
-		/////////////////////
-		guiSpillere = new GUI_Player[antalSpillere]; ///Kunne måske undlades??
-		//////////////////7
-		
-		Konto spillerKonto;
-		Brik spillerBrik;
-		GUI_Car guiBrik;
-		for (int i = 0; i < antalSpillere; i++) {
-			spillerKonto = spillere[i].getKonto();
-			spillerBrik = spillere[i].getBrik();
-			guiBrik = new GUI_Car();
-			guiBrik.setPrimaryColor(spillerBrik.getBrikFarve());
-			
-			guiSpillere[i] = new GUI_Player(spillere[i].getSpillerNavn(), 
-					spillerKonto.getPengeBeholdning(), 
-					guiBrik);
-			
-			gui.addPlayer(guiSpillere[i]);
-			guiFelter[0].setCar(guiSpillere[i], true);
-		}
 
-	}
-	
-	private void  skabChanceKort(Chancekort[] kort) {
-		
-	}
-	
 	private void skabFelter(Felt[] felter) {
-		
+
 		Felt felt;
 		int type;
 		int konverteret;
@@ -73,14 +43,14 @@ public class GUIFører {
 			konverteret = FRA40TIL24[i];
 			felt = felter[konverteret];
 			type = felt.getFeltType();
-			
+
 			switch(type) {
 			case 1: //felter hvor der ikke sker noget
 				guiFelter[i] = new GUI_Refuge();
 				guiFelter[i].setBackGroundColor(felt.getFeltFarve());
 				guiFelter[i].setSubText(felt.getFeltNavn());
-			break;
-			
+				break;
+
 			case 2: //felter der kan købes eller ejes af nogen
 				guiFelter[i] = new GUI_Street(
 						felt.getFeltNavn(),
@@ -89,8 +59,8 @@ public class GUIFører {
 						felt.getVærdi()+"kr.", 
 						felt.getFeltFarve(),
 						Color.black);
-			break;
-			
+				break;
+
 			case 3: //felter der er chancekort 
 				guiFelter[i] = new GUI_Chance(
 						"?",
@@ -98,8 +68,8 @@ public class GUIFører {
 						"",
 						felt.getFeltFarve(),
 						Color.orange);
-			break;
-			
+				break;
+
 			case 4: //felter hvor man får penge (start) 
 				guiFelter[i] = new GUI_Start(
 						felt.getFeltNavn(),
@@ -107,12 +77,51 @@ public class GUIFører {
 						"",
 						felt.getFeltFarve(),
 						Color.black);
-			break;
-			
+				break;
+
 			}
 		}
 	}
 	
-	
+	public void skabSpillere(Spiller[] spillere) {
+		int antalSpillere = spillere.length;
+		/////////////////////
+		guiSpillere = new GUI_Player[antalSpillere]; ///Kunne måske undlades??
+		//////////////////7
 
+		Konto spillerKonto;
+		Brik spillerBrik;
+		GUI_Car guiBrik;
+		for (int i = 0; i < antalSpillere; i++) {
+			spillerKonto = spillere[i].getKonto();
+			spillerBrik = spillere[i].getBrik();
+			guiBrik = new GUI_Car();
+			guiBrik.setPrimaryColor(spillerBrik.getBrikFarve());
+
+			guiSpillere[i] = new GUI_Player(spillere[i].getSpillerNavn(), 
+					spillerKonto.getPengeBeholdning(), 
+					guiBrik);
+
+			gui.addPlayer(guiSpillere[i]);
+			guiFelter[0].setCar(guiSpillere[i], true);
+		}
+
+	}
+
+	public void  visChanceKort(Chancekort kort) {
+		String kortTekst = kort.getChanceKortTekst();
+		gui.displayChanceCard(kortTekst);
+	}
+	
+	public void visTerninger(int t1, int t2) {
+		gui.setDice(t1, t2);
+	}
+	
+	public Color visVælgFarve(Spiller spiller) {
+		String navn = spiller.getSpillerNavn();
+		String besked = navn +", vælg din bils farve.";
+		
+		String valg = gui.getUserSelection(besked, "kage","mælk");
+		return Color.pink;
+	}
 }
