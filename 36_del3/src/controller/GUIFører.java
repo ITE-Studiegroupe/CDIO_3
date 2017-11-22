@@ -171,4 +171,19 @@ public class GUIFører {
 		
 		gui.getUserButtonPressed(besked, "Kast");
 	}
+	
+	public void visBesked(String besked) {
+		gui.showMessage(besked);
+	}
+	
+	public boolean visKøbFelt(Spiller spiller, Felt_Forretning felt) {
+		String besked = "navn vil du købe feltnavn for feltpris ?";
+		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
+	}
+	
+	public void rykBrik(int spillerNr, int feltNr) {
+		int konverteret = FRA24TIL40[feltNr];
+		GUI_Field felt = guiFelter[konverteret];
+		felt.setCar(guiSpillere[spillerNr], true);
+	}
 }
