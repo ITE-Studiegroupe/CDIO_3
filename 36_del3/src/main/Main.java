@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import controller.GUIFører;
 import monololy_junior.Brik;
+import monololy_junior.Chancekort;
 import monololy_junior.Konto;
 import monololy_junior.Plade;
 import monololy_junior.Raflebæger;
@@ -18,16 +19,16 @@ public class Main {
 		int antalSpillere;
 		int nuværendeSpiller;
 		Plade plade;
-		GUIFører guiFører;
 		Spiller[] spillere;
 		Raflebæger bæger;
+		Chancekort chancekort = new Chancekort();
 
 		plade = new Plade();
 		plade.bygPlade();
 		GUIFører gui = new GUIFører();
 		gui.skabGUI(plade.getFelter());
-		int antalspiller = gui.visVælgAntalSpillere();
-		spillere = new Spiller[antalspiller];
+		antalSpillere = gui.visVælgAntalSpillere();
+		spillere = new Spiller[antalSpillere];
 
 		for (int i = 0; i < spillere.length; i++) {
 			String returNavn = gui.visIndtastNavn();
@@ -59,16 +60,35 @@ public class Main {
 			if (felt instanceof Felt_Forretning) {
 				if (((Felt_Forretning) felt).harEjer()) {
 					((Felt_Forretning) felt).getEjer().getKonto().indsætPenge(-((Felt_Forretning) felt).getPris());
-					spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris());
-					System.out.println(spillere[nuværendeSpiller].getKonto().getPengeBeholdning());
-				}
+					if(spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris())) {
+						
+					}
+									}
 				else {
-					spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris());
+					if (spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris())) {
 					spillere[nuværendeSpiller].tilføjFelt(((Felt_Forretning) felt));
 					((Felt_Forretning) felt).setEjer(spillere[nuværendeSpiller]);
+					}
+					else {
+						
+					}
 				}
 			}
 			else if (felt instanceof Felt_Chance) {
+				chancekort = plade.trækChancekort();
+				gui.visChanceKort(chancekort);
+				if(chancekort.getKortType()== 1) {
+					if(spillere[nuværendeSpiller].getKonto().indsætPenge(-chancekort.getVærdi()));
+					
+					}
+				else if(chancekort.getKortType()==2) {
+					if(spillere[nuværendeSpiller].getKonto().indsætPenge(chancekort.getVærdi())) {				
+					}
+					else {
+						spillere[nuværendeSpiller].
+					}
+				}
+				
 				
 			}
 
