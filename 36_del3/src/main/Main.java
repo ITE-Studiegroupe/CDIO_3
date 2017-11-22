@@ -65,6 +65,7 @@ public class Main {
 				else {
 					spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris());
 					spillere[nuværendeSpiller].tilføjFelt(((Felt_Forretning) felt));
+					((Felt_Forretning) felt).setEjer(spillere[nuværendeSpiller]);
 				}
 			}
 			else if (felt instanceof Felt_Chance) {
