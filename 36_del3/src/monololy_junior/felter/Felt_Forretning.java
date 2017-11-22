@@ -25,6 +25,10 @@ public class Felt_Forretning extends Felt {
 		if (ejer == null) ejer = spiller;
 	}
 	
+	public Spiller getEjer() {
+		return ejer;
+	}
+	
 	public void setPris(int p) {
 		pris = p;
 	}
