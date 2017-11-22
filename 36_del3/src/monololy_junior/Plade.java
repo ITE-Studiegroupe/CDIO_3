@@ -21,10 +21,8 @@ public class Plade {
 	 *
 	 */
 	
-	private int antalFelter;
 	private Chancekort[] chancekort = new Chancekort[8];
 	private Felt[] felter = new Felt[24];
-	private GUIFører guiFører = new GUIFører();
 	
 	/**
 	 * 1. felter hvor der ikke sker noget 
@@ -36,8 +34,6 @@ public class Plade {
 	public void bygPlade() {
 		bygFelter();
 		bygChancekort();
-		
-		guiFører.skabGUI(felter);
 		
 	}
 
@@ -127,6 +123,9 @@ public class Plade {
 		int trukketChancekort = ((int) (Math.random()*chancekort.length));
 		return chancekort[trukketChancekort];
 
+		}
 		
-	}
+		public Felt[] getFelter() {
+			return felter;
+		}
 }

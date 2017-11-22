@@ -29,14 +29,16 @@ public class GUIFører {
 			30, 32, 34, 35, 37, 39 };
 
 	private GUI_Field[] guiFelter = new GUI_Field[40];
-	GUI_Player[] guiSpillere;
-	GUI gui;
+	private GUI_Player[] guiSpillere;
+	private GUI gui;
 
 
 	public void skabGUI(Felt[] felter) {
 		skabFelter(felter);
 
+		System.out.println("skaber gui");
 		gui = new GUI(guiFelter);
+		System.out.println("skabt gui");
 	}
 
 	private void skabFelter(Felt[] felter) {
@@ -93,7 +95,7 @@ public class GUIFører {
 		int antalSpillere = spillere.length;
 		/////////////////////
 		guiSpillere = new GUI_Player[antalSpillere]; ///Kunne måske undlades??
-		//////////////////7
+		//////////////////
 
 		Konto spillerKonto;
 		Brik spillerBrik;
@@ -153,8 +155,9 @@ public class GUIFører {
 	
 	public int visVælgAntalSpillere() {
 		String besked = "Vælg antal spillere.";
-
-		return Integer.parseInt(gui.getUserSelection(besked, "2","3","4"));
+		String valg = gui.getUserSelection(besked, "2","3","4");
+		
+		return Integer.parseInt(valg);
 	}
 	
 	public String visIndtastNavn() {
