@@ -17,24 +17,14 @@ public class Spillelogik {
 	Spiller[] spillere;
 
 	// Opretter nyt plade objekt.
-	Plade pladeObjekt = new Plade();
-
 	// Opretter getter.metode til plade.
-	public Plade getBygPlade() {
-		return plade;
+	public Plade opretPlade() {
+		Plade pladeObjekt = new Plade();
+		pladeObjekt.bygPlade();
+		return pladeObjekt;
 	}
 
 	GUIFører guiObjekt = new GUIFører();
-	
-	antalSpillere == return visVælgAntalSpillere
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
