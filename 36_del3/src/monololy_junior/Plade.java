@@ -40,53 +40,53 @@ public class Plade {
 	//Bygfelter metode
 	private void bygFelter() {
 		
-		felter[0] = new Felt_Start("Start!", 4, Color.WHITE, Color.BLACK);
+		felter[0] = new Felt_Start(Tekst.TekstFeltNavne.TEKSTER[0], 4, Color.WHITE, Color.BLACK);
 		
-		felter[1] = new Felt_Forretning("Burgerbaren", 1, Color.RED, Color.BLACK);
+		felter[1] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[1], 1, Color.RED, Color.BLACK);
 		
-		felter[2] = new Felt_Forretning("Pizzahuset", 1, Color.RED, Color.BLACK);
+		felter[2] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[2], 1, Color.RED, Color.BLACK);
 		
-		felter[3] = new Felt_Chance("Chancekort", Color.GRAY, Color.ORANGE);
+		felter[3] = new Felt_Chance(Tekst.TekstFeltNavne.TEKSTER[3], Color.GRAY, Color.ORANGE);
 		
-		felter[4] = new Felt_Forretning("Slikbutikken", 1, Color.BLUE, Color.BLACK);
+		felter[4] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[4], 1, Color.BLUE, Color.BLACK);
 		
-		felter[5] = new Felt_Forretning("Iskiosken", 1, Color.BLUE, Color.BLACK);
+		felter[5] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[5], 1, Color.BLUE, Color.BLACK);
 		
-		felter[6] = new Felt_Fængsel("Fængslet", "forklaring", true, Color.BLACK, Color.WHITE);
+		felter[6] = new Felt_Fængsel(Tekst.TekstFeltNavne.TEKSTER[6], true, Color.BLACK, Color.WHITE);
 		
-		felter[7] = new Felt_Forretning("Museet", 2, Color.PINK, Color.BLACK);
+		felter[7] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[7], 2, Color.PINK, Color.BLACK);
 		
-		felter[8] = new Felt_Forretning("Biblioteket", 2, Color.PINK, Color.BLACK);
+		felter[8] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[8], 2, Color.PINK, Color.BLACK);
 		
-		felter[9] = new Felt_Chance("Chancekort", Color.GRAY, Color.ORANGE);
+		felter[9] = new Felt_Chance(Tekst.TekstFeltNavne.TEKSTER[9], Color.GRAY, Color.ORANGE);
 		
-		felter[10] = new Felt_Forretning("Skaterparken", 2, Color.YELLOW, Color.BLACK);
+		felter[10] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[10], 2, Color.YELLOW, Color.BLACK);
 		
-		felter[11] = new Felt_Forretning("Swimmingpoolen", 2, Color.YELLOW, Color.BLACK);
+		felter[11] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[11], 2, Color.YELLOW, Color.BLACK);
 		
-		felter[12] = new Felt_Helle("Gratis parkering", Color.WHITE, Color.BLACK);
+		felter[12] = new Felt_Helle(Tekst.TekstFeltNavne.TEKSTER[12], Color.WHITE, Color.BLACK);
 		
-		felter[13] = new Felt_Forretning("Spillehallen", 3, Color.ORANGE, Color.BLACK);
+		felter[13] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[13], 3, Color.ORANGE, Color.BLACK);
 		
-		felter[14] = new Felt_Forretning("Biografen", 3, Color.ORANGE, Color.BLACK);
+		felter[14] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[14], 3, Color.ORANGE, Color.BLACK);
 		
-		felter[15] = new Felt_Chance("Chancekort", Color.GRAY, Color.ORANGE);
+		felter[15] = new Felt_Chance(Tekst.TekstFeltNavne.TEKSTER[15], Color.GRAY, Color.ORANGE);
 		
-		felter[16] = new Felt_Forretning("Legetøjsbutikken", 3, Color.CYAN, Color.BLACK);
+		felter[16] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[16], 3, Color.CYAN, Color.BLACK);
 		
-		felter[17] = new Felt_Forretning("Dyrehandelen", 3, Color.CYAN, Color.BLACK);
+		felter[17] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[17], 3, Color.CYAN, Color.BLACK);
 		
-		felter[18] = new Felt_Fængsel("Gå i fængslet", "", false, Color.BLACK, Color.WHITE);
+		felter[18] = new Felt_Fængsel(Tekst.TekstFeltNavne.TEKSTER[18], false, Color.BLACK, Color.WHITE);
 		
-		felter[19] = new Felt_Forretning("Bowlinghallen", 4, Color.GREEN, Color.BLACK);
+		felter[19] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[19], 4, Color.GREEN, Color.BLACK);
 		
-		felter[20] = new Felt_Forretning("Zoo", 4, Color.GREEN, Color.BLACK);
+		felter[20] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[20], 4, Color.GREEN, Color.BLACK);
 		
-		felter[21] = new Felt_Chance("Chancekort", Color.GRAY, Color.ORANGE);
+		felter[21] = new Felt_Chance(Tekst.TekstFeltNavne.TEKSTER[21], Color.GRAY, Color.ORANGE);
 		
-		felter[22] = new Felt_Forretning("Vandlandet", 4, Color.BLUE, Color.BLACK);
+		felter[22] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[22], 4, Color.BLUE, Color.BLACK);
 		
-		felter[23] = new Felt_Forretning("Strandpromenaden", 4, Color.BLUE, Color.BLACK);
+		felter[23] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[23], 4, Color.BLUE, Color.BLACK);
 		}
 	
 	/**
@@ -98,21 +98,21 @@ public class Plade {
 
 	private void bygChancekort() {
 		
-		chancekort[0] = new Chancekort(3, 1, "Du skylder banken penge! Betal 3kr.");
+		chancekort[0] = new Chancekort(3, 1, Tekst.TekstChancekort.TEKSTER[0]);
 		
-		chancekort[1] = new Chancekort(20, 3, "Du har lyst til at se på dyr, ryk til Zoo");
+		chancekort[1] = new Chancekort(20, 3, Tekst.TekstChancekort.TEKSTER[1]);
 		
-		chancekort[2] = new Chancekort(4, 1, "Banken har fødselsdag, betal 4kr.");
+		chancekort[2] = new Chancekort(4, 1, Tekst.TekstChancekort.TEKSTER[2]);
 		
-		chancekort[3] = new Chancekort(13, 3, "Du vil spille på flippermaskiner, ryk til Spillehallen");
+		chancekort[3] = new Chancekort(13, 3, Tekst.TekstChancekort.TEKSTER[3]);
 		
-		chancekort[4] = new Chancekort(6, 3, "Du er kæmpe fan af Egon Olsen, ryk til Fængsel");
+		chancekort[4] = new Chancekort(6, 3, Tekst.TekstChancekort.TEKSTER[4]);
 		
-		chancekort[5] = new Chancekort(1, 2, "Du har fundet 1kr på gaden, det er den lykkedag! Du får 1kr.");
+		chancekort[5] = new Chancekort(1, 2, Tekst.TekstChancekort.TEKSTER[5]);
 		
-		chancekort[6] = new Chancekort(2, 2, "Du har smadret din sparegris. Du får 2kr.");
+		chancekort[6] = new Chancekort(2, 2, Tekst.TekstChancekort.TEKSTER[6]);
 		
-		chancekort[7] = new Chancekort(4, 2, "Du har solgt din javabog. Du får 4kr.");
+		chancekort[7] = new Chancekort(4, 2, Tekst.TekstChancekort.TEKSTER[7]);
 			
 		}
 	/**

@@ -72,7 +72,6 @@ public class GUIFører {
 				guiFelter[i].setSubText(felt.getFeltNavn());
 				guiFelter[i].setBackGroundColor(felt.getBgFarve());
 				guiFelter[i].setForeGroundColor(felt.getTekstFarve());
-				guiFelter[i].setDescription(((Felt_Fængsel)felt).getForklaring());
 			}
 			else if (felt instanceof Felt_Start) {
 				guiFelter[i] = new GUI_Start(

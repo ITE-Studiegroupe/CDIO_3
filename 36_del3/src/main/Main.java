@@ -16,9 +16,9 @@ public class Main {
 		//test nils
 		//Heprforwepå
 		
-		System.out.println(Tekst.Tekster.TEKSTER[0]);
+		System.out.println(Tekst.TekstSpil.TEKSTER[0]);
 		
-		System.out.println(String.format(Tekst.Tekster.TEKSTER[2],"Preben"));
+		System.out.println(String.format(Tekst.TekstSpil.TEKSTER[2],"Preben"));
 	}
 
 }
