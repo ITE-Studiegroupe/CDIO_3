@@ -26,7 +26,7 @@ public class Spillelogik {
 
 	GUIFører guiObjekt = new GUIFører();
 	
-	antalSpillere == return visVælgAntalSpillere
+	//antalSpillere == return visVælgAntalSpillere
 	
 	
 	
