@@ -85,7 +85,7 @@ public class Main {
 					if(spillere[nuværendeSpiller].getKonto().indsætPenge(chancekort.getVærdi())) {				
 					}
 					else {
-						spillere[nuværendeSpiller].
+						
 					}
 				}
 				
