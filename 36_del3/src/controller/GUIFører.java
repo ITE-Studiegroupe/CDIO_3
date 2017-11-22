@@ -187,9 +187,24 @@ public class GUIFører {
 		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
 	}
 	
-	public void rykBrik(int spillerNr, int feltNr) {
-		int konverteret = FRA24TIL40[feltNr];
-		GUI_Field felt = guiFelter[konverteret];
-		felt.setCar(guiSpillere[spillerNr], true);
+	public void rykBrik(int spillerNr, int feltNr, int placering) {
+		
+		feltNr = FRA24TIL40[feltNr];
+		placering = FRA24TIL40[placering];
+		int antalSpillere = guiSpillere.length;
+		boolean[] harBrik = new boolean[antalSpillere];
+		for (int i = 0; i < antalSpillere; i++) {
+			if (i != spillerNr)
+			harBrik[i] = guiFelter[placering].hasCar(guiSpillere[i]);
+			else harBrik[i] = false;
+		}
+		
+		guiFelter[placering].removeAllCars();
+		for (int i = 0; i < antalSpillere; i++) {
+			if (harBrik[i])
+				guiFelter[placering].setCar(guiSpillere[i], true);
+		}
+		
+		guiFelter[feltNr].setCar(guiSpillere[spillerNr], true);
 	}
 }

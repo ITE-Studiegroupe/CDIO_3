@@ -15,7 +15,7 @@ import monololy_junior.felter.Felt_Forretning;
 
 public class Spiller {
 	private String spillerNavn;
-	private Felt_Forretning[] ejetFelter;
+	private Felt_Forretning[] ejetFelter = new Felt_Forretning[0];
 	private Konto konto;
 	private Brik brik;
 

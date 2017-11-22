@@ -22,11 +22,13 @@ public class Main {
 		Spiller[] spillere;
 		Raflebæger bæger;
 		Chancekort chancekort = new Chancekort();
+		Felt[] felter;
 
 		plade = new Plade();
 		plade.bygPlade();
+		felter = plade.getFelter();
 		GUIFører gui = new GUIFører();
-		gui.skabGUI(plade.getFelter());
+		gui.skabGUI(felter);
 		antalSpillere = gui.visVælgAntalSpillere();
 		spillere = new Spiller[antalSpillere];
 
@@ -52,16 +54,28 @@ public class Main {
 			int terning1 = bæger.getSumt1();
 			int terning2 = bæger.getSumT2();
 			gui.visTerninger(terning1, terning2);
-			gui.rykBrik(nuværendeSpiller, terning1 + terning2);
+			gui.rykBrik(nuværendeSpiller, terning1 + terning2, spillere[nuværendeSpiller].getBrik().getBrikPlacering());
 			spillere[nuværendeSpiller].getBrik().setBrikPlacering(terning1 + terning2);
-			Felt[] felter = plade.getFelter();
 			Felt felt = felter[terning1 + terning2];
 
 			if (felt instanceof Felt_Forretning) {
 				if (((Felt_Forretning) felt).harEjer()) {
 					((Felt_Forretning) felt).getEjer().getKonto().indsætPenge(-((Felt_Forretning) felt).getPris());
-					if(spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris())) {
-						
+					if(!spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris())) {
+						Spiller vinder = null;
+						int max = 0;
+						for (int i = 0; i < antalSpillere; i++) {
+							int penge = spillere[i].getKonto().getPengeBeholdning();
+							if(penge > max) {
+								max = penge;
+								vinder = spillere[i];
+							}	
+						}
+						if (gui.visSpilSlutSpilIgen(vinder, spillere[nuværendeSpiller])) {
+							//Genstart spil
+						}
+						else
+							System.exit(0);
 					}
 									}
 				else {
