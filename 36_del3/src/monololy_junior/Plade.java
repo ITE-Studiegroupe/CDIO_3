@@ -23,13 +23,7 @@ public class Plade {
 	
 	private Chancekort[] chancekort = new Chancekort[8];
 	private Felt[] felter = new Felt[24];
-	
-	/**
-	 * 1. felter hvor der ikke sker noget 
-	 * 2. felter der kan købes eller ejes af nogen 
-	 * 3. felter der er chancekort 
-	 * 4. felter hvor man får penge (start) 
-	 */
+
 	
 	public void bygPlade() {
 		bygFelter();
