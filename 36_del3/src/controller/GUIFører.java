@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.Color;
 
+import Tekst.TekstSpil;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
@@ -35,10 +36,7 @@ public class GUIFører {
 
 	public void skabGUI(Felt[] felter) {
 		skabFelter(felter);
-
-		System.out.println("skaber gui");
 		gui = new GUI(guiFelter);
-		System.out.println("skabt gui");
 	}
 
 	private void skabFelter(Felt[] felter) {
@@ -126,7 +124,7 @@ public class GUIFører {
 	
 	public Color visVælgFarve(Spiller spiller) {
 		String navn = spiller.getSpillerNavn();
-		String besked = navn +", vælg din bils farve.";
+		String besked = String.format(TekstSpil.TEKSTER[2], navn);
 		String[] farverStreng = new String[] {"Blå", "Rød", "Grøn", "Pink", "Gul", "Sort", "Hvid"};
 		Color[] farver = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.PINK, Color.YELLOW,
 				Color.BLACK, Color.WHITE};
@@ -148,27 +146,50 @@ public class GUIFører {
 			}
 		}
 		
-		
 		return farve;
 	}
 	
 	public int visVælgAntalSpillere() {
-		String besked = "Vælg antal spillere.";
-		String valg = gui.getUserSelection(besked, "2","3","4");
+		String valg = gui.getUserSelection(TekstSpil.TEKSTER[0], "2","3","4");
 		
 		return Integer.parseInt(valg);
 	}
 	
 	public String visIndtastNavn() {
-		String besked = "Indtast dit navn";
-		
-		return gui.getUserString(besked);
+		return gui.getUserString(TekstSpil.TEKSTER[1]);
 	}
 	
 	public void visKastTerninger(Spiller spiller) {
 		String navn = spiller.getSpillerNavn();
-		String besked = navn+", din tur til at kaste";
+		String besked = String.format(TekstSpil.TEKSTER[3], navn);
 		
 		gui.getUserButtonPressed(besked, "Kast");
+	}
+	
+	public void visBesked(String besked) {
+		gui.showMessage(besked);
+	}
+	
+	public boolean visKøbFelt(Spiller spiller, Felt_Forretning felt) {
+		String navn = spiller.getSpillerNavn();
+		String feltNavn = felt.getFeltNavn();
+		int pris = felt.getPris();
+		String besked = String.format(TekstSpil.TEKSTER[4], navn, feltNavn, pris );
+		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
+	}
+	
+	public boolean visSpilSlutSpilIgen(Spiller vinder, Spiller taber) {
+		String vNavn = vinder.getSpillerNavn();
+		int vPenge = vinder.getKonto().getPengeBeholdning();
+		String tNavn = taber.getSpillerNavn();
+		String besked = String.format(TekstSpil.TEKSTER[5], vNavn, vPenge, tNavn);
+		
+		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
+	}
+	
+	public void rykBrik(int spillerNr, int feltNr) {
+		int konverteret = FRA24TIL40[feltNr];
+		GUI_Field felt = guiFelter[konverteret];
+		felt.setCar(guiSpillere[spillerNr], true);
 	}
 }
