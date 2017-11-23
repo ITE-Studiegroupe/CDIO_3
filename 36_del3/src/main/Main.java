@@ -12,6 +12,9 @@ import monololy_junior.Spiller;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
+import monololy_junior.felter.Felt_Fængsel;
+import monololy_junior.felter.Felt_Helle;
+import monololy_junior.felter.Felt_Start;
 
 public class Main {
 
@@ -54,59 +57,73 @@ public class Main {
 			int terning1 = bæger.getSumt1();
 			int terning2 = bæger.getSumT2();
 			gui.visTerninger(terning1, terning2);
+			spillere[nuværendeSpiller].getBrik().rykBrik(terning1 + terning2);
 			gui.rykBrik(nuværendeSpiller, terning1 + terning2, spillere[nuværendeSpiller].getBrik().getBrikPlacering());
 			spillere[nuværendeSpiller].getBrik().setBrikPlacering(terning1 + terning2);
 			Felt felt = felter[terning1 + terning2];
 
 			if (felt instanceof Felt_Forretning) {
 				if (((Felt_Forretning) felt).harEjer()) {
-					((Felt_Forretning) felt).getEjer().getKonto().indsætPenge(-((Felt_Forretning) felt).getPris());
-					if(!spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris())) {
+					((Felt_Forretning) felt).getEjer().getKonto().indsætPenge(((Felt_Forretning) felt).getPris());
+					if (!spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris())) {
 						Spiller vinder = null;
 						int max = 0;
 						for (int i = 0; i < antalSpillere; i++) {
 							int penge = spillere[i].getKonto().getPengeBeholdning();
-							if(penge > max) {
+							if (penge > max) {
 								max = penge;
 								vinder = spillere[i];
-							}	
+							}
 						}
 						if (gui.visSpilSlutSpilIgen(vinder, spillere[nuværendeSpiller])) {
-							//Genstart spil
-						}
-						else
+							// Genstart spil
+						} else
 							System.exit(0);
 					}
-									}
-				else {
+				} else {
 					if (spillere[nuværendeSpiller].getKonto().indsætPenge(-((Felt_Forretning) felt).getPris())) {
-					spillere[nuværendeSpiller].tilføjFelt(((Felt_Forretning) felt));
-					((Felt_Forretning) felt).setEjer(spillere[nuværendeSpiller]);
-					}
-					else {
-						
+						spillere[nuværendeSpiller].tilføjFelt(((Felt_Forretning) felt));
+						((Felt_Forretning) felt).setEjer(spillere[nuværendeSpiller]);
+					} else {
+
 					}
 				}
-			}
-			else if (felt instanceof Felt_Chance) {
+			} else if (felt instanceof Felt_Chance) {
 				chancekort = plade.trækChancekort();
 				gui.visChanceKort(chancekort);
-				if(chancekort.getKortType()== 1) {
-					if(spillere[nuværendeSpiller].getKonto().indsætPenge(-chancekort.getVærdi()));
-					
+				if (chancekort.getKortType() == 1) {
+					if (!spillere[nuværendeSpiller].getKonto().indsætPenge(-chancekort.getVærdi()))
+						;
+					Spiller vinder = null;
+					int max = 0;
+					for (int i = 0; i < antalSpillere; i++) {
+						int penge = spillere[i].getKonto().getPengeBeholdning();
+						if (penge > max) {
+							max = penge;
+							vinder = spillere[i];
+						}
 					}
-				else if(chancekort.getKortType()==2) {
-					if(spillere[nuværendeSpiller].getKonto().indsætPenge(chancekort.getVærdi())) {				
-					}
-					else {
-						
-					}
+					if (gui.visSpilSlutSpilIgen(vinder, spillere[nuværendeSpiller])) {
+						// Genstart spil
+					} else
+						System.exit(0);
 				}
-				
-				
+			} else if (chancekort.getKortType() == 2) {
+				if (spillere[nuværendeSpiller].getKonto().indsætPenge(chancekort.getVærdi())) {
+				}
+			} else if (chancekort.getKortType() == 3) {
+				// spillere[nuværendeSpiller].getBrik().rykBrik(chancekort.getVærdi());
+				gui.rykBrik(nuværendeSpiller, chancekort.getVærdi(), spillere[0].getBrik().getBrikPlacering());
+				// gui.rykBrik(nuværendeSpiller, felt., placering);
 			}
+
+			// nuværendeSpiller++;
+			// if(nuværendeSpiller>=antalSpillere) {
+			// nuværendeSpiller= nuværendeSpiller-antalSpillere;
+			// }
 
 		}
 
 	}
+
 }

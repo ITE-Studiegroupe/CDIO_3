@@ -206,5 +206,9 @@ public class GUIFører {
 		}
 		
 		guiFelter[feltNr].setCar(guiSpillere[spillerNr], true);
-	}
+		}
+//	
+//	public void setkonto(Spiller spiller, int kontobeholdning) {
+//		guiSpilleresetBalance(kontobeholdning);;
+//	}
 }
