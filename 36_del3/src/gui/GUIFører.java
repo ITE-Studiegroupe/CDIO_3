@@ -118,8 +118,8 @@ public class GUIFører {
 		gui.displayChanceCard(kortTekst);
 	}
 	
-	public void visTerninger(int t1, int t2) {
-		gui.setDice(t1, t2);
+	public void visTerning(int t) {
+		gui.setDie(t);
 	}
 	
 	public Color visVælgFarve(Spiller spiller) {
@@ -187,9 +187,9 @@ public class GUIFører {
 		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
 	}
 	
-	public void rykBrik(int spillerNr, int feltNr, int placering) {
+	public void rykBrik(int spillerNr, int nyPlads, int placering) {
 		
-		feltNr = FRA24TIL40[feltNr];
+		nyPlads = FRA24TIL40[nyPlads];
 		placering = FRA24TIL40[placering];
 		int antalSpillere = guiSpillere.length;
 		boolean[] harBrik = new boolean[antalSpillere];
@@ -205,7 +205,7 @@ public class GUIFører {
 				guiFelter[placering].setCar(guiSpillere[i], true);
 		}
 		
-		guiFelter[feltNr].setCar(guiSpillere[spillerNr], true);
+		guiFelter[nyPlads].setCar(guiSpillere[spillerNr], true);
 		}
 //	
 //	public void setkonto(Spiller spiller, int kontobeholdning) {

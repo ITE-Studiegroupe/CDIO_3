@@ -57,6 +57,7 @@ public class Spiller {
 		Felt_Forretning[] nytFelt = Arrays.copyOf(ejetFelter, ejetFelter.length + 1);
 		nytFelt[nytFelt.length - 1] = spillerFelt;
 		ejetFelter = nytFelt;
+		spillerFelt.setEjer(this);
 	}
 	
 	/**

@@ -26,9 +26,8 @@ public class Brik {
 	public void rykBrik(int antalRyk) {
 		int nyPlacering = antalRyk + brikPlacering;
 		if(nyPlacering>24) {
-			int endeligNyPlacering = (nyPlacering-24);
-			brikPlacering = endeligNyPlacering;
+			nyPlacering = nyPlacering-24;
 		}
-		
+		brikPlacering = nyPlacering;
 	}
 }
