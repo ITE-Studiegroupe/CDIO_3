@@ -39,6 +39,7 @@ public class Spillelogik {
 
 				
 				feltF.getEjer().getKonto().indsætPenge(pris);
+				System.out.println("Feltets ejers beholdning: " + feltF.getEjer().getKonto().getPengeBeholdning());
 
 				if (!konto.indsætPenge(-pris)) {
 					// Spiller vinder = null;
@@ -62,6 +63,7 @@ public class Spillelogik {
 			else {
 				if (konto.indsætPenge(-pris)) {
 					spiller.tilføjFelt(feltF);
+					System.out.println("Spillerens beholdning: " + spiller.getKonto().getPengeBeholdning());
 				} 
 				else {
 					//spilleren har tabt
