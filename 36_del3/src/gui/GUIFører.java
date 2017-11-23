@@ -32,6 +32,13 @@ public class GUIFører {
 	private GUI_Field[] guiFelter = new GUI_Field[40];
 	private GUI_Player[] guiSpillere;
 	private GUI gui;
+	private static final GUIFører INSTANS = new GUIFører();
+
+	private GUIFører() {}
+
+	public static GUIFører getInstans() {
+		return INSTANS;
+	}
 
 
 	public void skabGUI(Felt[] felter) {
@@ -44,10 +51,10 @@ public class GUIFører {
 		Felt felt;
 		int konverteret;
 		for (int i = 0; i < guiFelter.length; i++) {
-			
+
 			konverteret = FRA40TIL24[i];
 			felt = felter[konverteret];
-			
+
 			if (felt instanceof Felt_Forretning) {
 				guiFelter[i] = new GUI_Street(
 						felt.getFeltNavn(),
@@ -87,7 +94,7 @@ public class GUIFører {
 			}
 		}
 	}
-	
+
 	public void skabSpillere(Spiller[] spillere) {
 		int antalSpillere = spillere.length;
 		/////////////////////
@@ -117,11 +124,11 @@ public class GUIFører {
 		String kortTekst = kort.getChanceKortTekst();
 		gui.displayChanceCard(kortTekst);
 	}
-	
+
 	public void visTerning(int t) {
 		gui.setDie(t);
 	}
-	
+
 	public Color visVælgFarve(Spiller spiller) {
 		String navn = spiller.getSpillerNavn();
 		String besked = String.format(TekstSpil.TEKSTER[2], navn);
@@ -129,7 +136,7 @@ public class GUIFører {
 		Color[] farver = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.PINK, Color.YELLOW,
 				Color.BLACK, Color.WHITE};
 		Color farve = Color.WHITE;
-		
+
 		String valg = gui.getUserSelection(besked, 
 				farverStreng[0],
 				farverStreng[1],
@@ -138,77 +145,54 @@ public class GUIFører {
 				farverStreng[4],
 				farverStreng[5],
 				farverStreng[6]);
-		
+
 		for (int i = 0; i < farver.length; i++) {
 			if (valg.equals(farverStreng[i])) {
 				farve = farver[i];
 				break;
 			}
 		}
-		
+
 		return farve;
 	}
-	
+
 	public int visVælgAntalSpillere() {
 		String valg = gui.getUserSelection(TekstSpil.TEKSTER[0], "2","3","4");
-		
+
 		return Integer.parseInt(valg);
 	}
-	
+
 	public String visIndtastNavn() {
 		return gui.getUserString(TekstSpil.TEKSTER[1]);
 	}
-	
+
 	public void visKastTerninger(Spiller spiller) {
 		String navn = spiller.getSpillerNavn();
 		String besked = String.format(TekstSpil.TEKSTER[3], navn);
-		
+
 		gui.getUserButtonPressed(besked, "Kast");
 	}
-	
+
 	public void visBesked(String besked) {
 		gui.showMessage(besked);
 	}
-	
-	public boolean visKøbFelt(Spiller spiller, Felt_Forretning felt) {
-		String navn = spiller.getSpillerNavn();
-		String feltNavn = felt.getFeltNavn();
-		int pris = felt.getPris();
-		String besked = String.format(TekstSpil.TEKSTER[4], navn, feltNavn, pris );
-		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
-	}
-	
+
 	public boolean visSpilSlutSpilIgen(Spiller vinder, Spiller taber) {
 		String vNavn = vinder.getSpillerNavn();
 		int vPenge = vinder.getKonto().getPengeBeholdning();
 		String tNavn = taber.getSpillerNavn();
 		String besked = String.format(TekstSpil.TEKSTER[5], vNavn, vPenge, tNavn);
-		
+
 		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
 	}
-	
-	public void rykBrik(int spillerNr, int nyPlads, int placering) {
-		
-		nyPlads = FRA24TIL40[nyPlads];
+
+	public void rykBrik(Spiller spiller, int placering) {
+
+		int nyPlads = FRA24TIL40[spiller.getBrik().getBrikPlacering()];
+		int spillerNr = spiller.getSpillerNr();
 		placering = FRA24TIL40[placering];
-		int antalSpillere = guiSpillere.length;
-		boolean[] harBrik = new boolean[antalSpillere];
-		for (int i = 0; i < antalSpillere; i++) {
-			if (i != spillerNr)
-			harBrik[i] = guiFelter[placering].hasCar(guiSpillere[i]);
-			else harBrik[i] = false;
-		}
 		
-		guiFelter[placering].removeAllCars();
-		for (int i = 0; i < antalSpillere; i++) {
-			if (harBrik[i])
-				guiFelter[placering].setCar(guiSpillere[i], true);
-		}
-		
+		guiFelter[placering].setCar(guiSpillere[spillerNr], false);
 		guiFelter[nyPlads].setCar(guiSpillere[spillerNr], true);
-		}
-//	
-//	public void setkonto(Spiller spiller, int kontobeholdning) {
-//		guiSpilleresetBalance(kontobeholdning);;
-//	}
+	}
 }

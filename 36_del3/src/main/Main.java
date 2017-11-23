@@ -15,6 +15,7 @@ import monololy_junior.felter.Felt_Forretning;
 import monololy_junior.felter.Felt_Fængsel;
 import monololy_junior.felter.Felt_Helle;
 import monololy_junior.felter.Felt_Start;
+import spillogik.Spillelogik;
 
 public class Main {
 
@@ -31,7 +32,7 @@ public class Main {
 		plade = new Plade();
 		plade.bygPlade();
 		felter = plade.getFelter();
-		GUIFører gui = new GUIFører();
+		GUIFører gui = GUIFører.getInstans();
 		gui.skabGUI(felter);
 		antalSpillere = gui.visVælgAntalSpillere();
 		spillere = new Spiller[antalSpillere];
@@ -40,6 +41,7 @@ public class Main {
 			String returNavn = gui.visIndtastNavn();
 			spillere[i] = new Spiller();
 			spillere[i].setSpillerNavn(returNavn);
+			spillere[i].setSpillerNr(i);
 			Brik brik = new Brik();
 			Color farve = gui.visVælgFarve(spillere[i]);
 			brik.setBrikFarve(farve);
@@ -58,19 +60,20 @@ public class Main {
 			gui.visKastTerninger(spiller);
 			
 			int kast = terning.kastTerning();
-			int feltNr = spiller.getBrik().getBrikPlacering();
 			gui.visTerning(kast);
-			spiller.getBrik().rykBrik(kast);
-			int nytFeltNr = spiller.getBrik().getBrikPlacering();
-			gui.rykBrik(nSpillerNr, nytFeltNr, feltNr);
+			int feltNr = spiller.getBrik().getBrikPlacering();
+			spiller.getBrik().rykBrik(kast);		
+			gui.rykBrik(spiller, feltNr);
 			
-			
+			Spillelogik.CDIO3_logik(kast, spiller, plade);
 
 			// nuværendeSpiller++;
 			// if(nuværendeSpiller>=antalSpillere) {
 			// nuværendeSpiller= nuværendeSpiller-antalSpillere;
 			// }
 
+			nSpillerNr++;
+			if (nSpillerNr >= antalSpillere) nSpillerNr = 0;
 		}
 
 	}

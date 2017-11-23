@@ -25,7 +25,7 @@ public class Brik {
 	//bruges til at skrive rykke brikken videre fra den nuværende 
 	public void rykBrik(int antalRyk) {
 		int nyPlacering = antalRyk + brikPlacering;
-		if(nyPlacering>24) {
+		if(nyPlacering>23) {
 			nyPlacering = nyPlacering-24;
 		}
 		brikPlacering = nyPlacering;

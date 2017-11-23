@@ -9,18 +9,18 @@ import monololy_junior.felter.Felt_Forretning;
 import monololy_junior.felter.Felt_Fængsel;
 import monololy_junior.felter.Felt_Helle;
 import monololy_junior.felter.Felt_Start;
-
+/**
+ * Denne klasse har til formål at holde på informationer omkring de 24 forskellige felter 
+ * og de 8 chancekort.
+ * 
+ * @author Gruppe 36
+ * @category Information expert
+ *
+ */
 public class Plade {
 	
-	/**
-	 * Denne klasse har til formål at holde på informationer omkring de 24 forskellige felter 
-	 * og de 8 chancekort.
-	 * 
-	 * @author Gruppe 36
-	 * @category Information expert
-	 *
-	 */
 	
+	public final int FÆNGSEL = 6;
 	private Chancekort[] chancekort = new Chancekort[8];
 	private Felt[] felter = new Felt[24];
 
