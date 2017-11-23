@@ -2,7 +2,7 @@ package monololy_junior;
 
 import java.awt.Color;
 
-import controller.GUIFører;
+import gui.GUIFører;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;

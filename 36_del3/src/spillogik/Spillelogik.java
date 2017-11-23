@@ -1,6 +1,6 @@
 package spillogik;
 
-import controller.GUIFører;
+import gui.GUIFører;
 import monololy_junior.Plade;
 import monololy_junior.Raflebæger;
 import monololy_junior.Spiller;

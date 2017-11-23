@@ -2,7 +2,7 @@ package main;
 
 import java.awt.Color;
 
-import controller.GUIFører;
+import gui.GUIFører;
 import monololy_junior.Brik;
 import monololy_junior.Chancekort;
 import monololy_junior.Konto;
@@ -107,14 +107,16 @@ public class Main {
 						// Genstart spil
 					} else
 						System.exit(0);
+				} else if (chancekort.getKortType() == 2) {
+					if (spillere[nuværendeSpiller].getKonto().indsætPenge(chancekort.getVærdi())) {
+					}
+				} else if (chancekort.getKortType() == 3) {
+					// spillere[nuværendeSpiller].getBrik().rykBrik(chancekort.getVærdi());
+					gui.rykBrik(nuværendeSpiller, chancekort.getVærdi(), spillere[0].getBrik().getBrikPlacering());
+					// gui.rykBrik(nuværendeSpiller, felt., placering);
 				}
-			} else if (chancekort.getKortType() == 2) {
-				if (spillere[nuværendeSpiller].getKonto().indsætPenge(chancekort.getVærdi())) {
-				}
-			} else if (chancekort.getKortType() == 3) {
-				// spillere[nuværendeSpiller].getBrik().rykBrik(chancekort.getVærdi());
-				gui.rykBrik(nuværendeSpiller, chancekort.getVærdi(), spillere[0].getBrik().getBrikPlacering());
-				// gui.rykBrik(nuværendeSpiller, felt., placering);
+			} else if (felt instanceof Felt_Fængsel) {
+				
 			}
 
 			// nuværendeSpiller++;
