@@ -6,6 +6,7 @@ import monololy_junior.Chancekort;
 import monololy_junior.Konto;
 import monololy_junior.Plade;
 import monololy_junior.Spiller;
+import monololy_junior.Spillere;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
@@ -15,18 +16,16 @@ import monololy_junior.felter.Felt_Start;
 public class Spillelogik {
 
 	// Spillogikkens atributter.
-	private int antalSpillere;
-	private int nSpillerNr;
 	private static GUIFører gui = GUIFører.getInstans();
 	private static Felt felt;
 	private static Konto konto;
 	private static Brik brik;
-	private static int feltNr;
 
-	public static void CDIO3_logik(int kast, Spiller spiller, Plade plade) {
+	public static void CDIO3_logik(int kast, Spillere spillere, Plade plade) {
 
+		Spiller spiller = spillere.getSpiller(spillere.getNSpillerNr());
 		brik = spiller.getBrik();
-		feltNr = brik.getBrikPlacering();
+		int feltNr = brik.getBrikPlacering();
 		felt = plade.getFelter()[feltNr];
 		konto = spiller.getKonto();
 
@@ -36,38 +35,19 @@ public class Spillelogik {
 			int pris = feltF.getPris();
 			
 			if (feltF.harEjer()) {
-
-				
+	
 				feltF.getEjer().getKonto().indsætPenge(pris);
-				System.out.println("Feltets ejers beholdning: " + feltF.getEjer().getKonto().getPengeBeholdning());
 
 				if (!konto.indsætPenge(-pris)) {
-					// Spiller vinder = null;
-					// int max = 0;
-					// for (int i = 0; i < antalSpillere; i++) {
-					// int penge = spiller.getKonto().getPengeBeholdning();
-					// if (penge > max) {
-					// max = penge;
-					// vinder = spillere[i];
-					// }
-					// }
-					// if (gui.visSpilSlutSpilIgen(vinder, spillere[nSpillerNr])) {
-					// // Genstart spil
-					// } else
-					// System.exit(0);
-					
-					//spilleren har tabt
-					System.out.println(spiller.getSpillerNavn()+" har tabt");
+					spillere.setTaber(spiller);
 				}
 			} 
 			else {
 				if (konto.indsætPenge(-pris)) {
 					spiller.tilføjFelt(feltF);
-					System.out.println("Spillerens beholdning: " + spiller.getKonto().getPengeBeholdning());
 				} 
 				else {
-					//spilleren har tabt
-					System.out.println(spiller.getSpillerNavn()+" har tabt");
+					spillere.setTaber(spiller);
 				}
 			}
 		} 
@@ -83,20 +63,19 @@ public class Spillelogik {
 				
 			case 2:
 				if (!konto.indsætPenge(v*p)) {
-					//spilleren har tabt
-					System.out.println(spiller.getSpillerNavn()+" har tabt");
+					spillere.setTaber(spiller);
 				}
 				break;
 				
 			case 3:
 				spiller.getBrik().setBrikPlacering(v);;
-				gui.rykBrik(spiller, feltNr);
+				gui.rykBrik(spiller);
 			}
 		} 
 		else if (felt instanceof Felt_Fængsel) {
 			if (!((Felt_Fængsel)felt).erFængsel()) {
 				brik.setBrikPlacering(plade.FÆNGSEL);
-				gui.rykBrik(spiller, feltNr);
+				gui.rykBrik(spiller);
 				spiller.setErIFængsel(true);
 			}
 		}

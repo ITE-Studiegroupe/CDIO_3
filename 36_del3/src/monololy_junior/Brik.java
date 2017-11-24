@@ -6,6 +6,7 @@ public class Brik {
 	
 	private Color brikFarve;
 	private int brikPlacering;
+	private int tidlPlacering;
 	
 	public Color getBrikFarve() {
 		return brikFarve;
@@ -28,6 +29,12 @@ public class Brik {
 		if(nyPlacering>23) {
 			nyPlacering = nyPlacering-24;
 		}
+		tidlPlacering = brikPlacering;
 		brikPlacering = nyPlacering;
 	}
+
+	public int getTidlPlacering() {
+		return tidlPlacering;
+	}
+
 }
