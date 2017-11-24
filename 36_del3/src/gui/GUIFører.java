@@ -175,7 +175,7 @@ public class GUIFører {
 		gui.showMessage(besked);
 	}
 
-	public boolean visSpilSlutSpilIgen(Spillere spillere) {
+	public void visSpilSlut(Spillere spillere) {
 		Spiller taber = spillere.getTaber();
 		Spiller vinder = spillere.getVinder();
 		String vNavn = vinder.getSpillerNavn();
@@ -183,7 +183,7 @@ public class GUIFører {
 		String tNavn = taber.getSpillerNavn();
 		String besked = String.format(TekstSpil.TEKSTER[5], vNavn, vPenge, tNavn);
 
-		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
+		gui.showMessage(besked);
 	}
 
 	public void rykBrik(Spiller spiller) {
@@ -194,6 +194,13 @@ public class GUIFører {
 		
 		guiFelter[nuPlads].setCar(guiSpillere[spillerNr], false);
 		guiFelter[nyPlads].setCar(guiSpillere[spillerNr], true);
+	}
+	
+	public void setFeltEjer(Spiller spiller) {
+		int feltNr = FRA24TIL40[spiller.getBrik().getBrikPlacering()];
+		GUI_Street felt = (GUI_Street)guiFelter[feltNr];
+		felt.setOwnerName(spiller.getSpillerNavn());
+		felt.setBorder(spiller.getBrik().getBrikFarve());
 	}
 	
 	public void opdaterKontoer(Spillere spillere) {

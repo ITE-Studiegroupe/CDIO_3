@@ -17,6 +17,7 @@ public class Brik {
 	}
 	
 	public int getBrikPlacering() {
+		tidlPlacering = brikPlacering;
 		return brikPlacering;
 	}
 	
