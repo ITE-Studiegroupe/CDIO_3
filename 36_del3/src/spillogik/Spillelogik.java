@@ -23,8 +23,8 @@ public class Spillelogik {
 
 	public static void CDIO3_logik(int kast, SpillerListe spillere, Plade plade) {
 
+		Spiller spiller = spillere.getSpiller(spillere.getNuvSpillerNr());
 
-		Spiller spiller = spillere.getSpiller(spillere.getNSpillerNr());
 		brik = spiller.getBrik();
 		int feltNr = brik.getBrikPlacering();
 		felt = plade.getFelter()[feltNr];

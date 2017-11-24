@@ -41,7 +41,7 @@ public class Controller {
 
 		while (!spillere.spillerHarTabt()) {
 
-			spiller = spillere.getSpiller(spillere.getNSpillerNr());
+			spiller = spillere.getSpiller(spillere.getNuvSpillerNr());
 
 			gui.visKastTerninger(spiller);
 

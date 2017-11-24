@@ -9,7 +9,7 @@ public class SpillerListe {
 	private Spiller taber;
 	private boolean spillerHarTabt;
 	private int antalSpillere;
-	private int nSpillerNr;
+	private int nuvSpillerNr;
 
 	public SpillerListe (int antal, int startKap ,String[] navne, Color[] farver) {
 		spillere = new Spiller[antal];
@@ -27,22 +27,22 @@ public class SpillerListe {
 		}
 		antalSpillere = antal;
 		spillerHarTabt = false;
-		nSpillerNr = 0;
+		nuvSpillerNr = 0;
 	}
 	
 	
 	
 	public void næsteSpillersTur() {
-		nSpillerNr++;
-		if (nSpillerNr >= antalSpillere) nSpillerNr = 0;
-		if (spillere[nSpillerNr].erIFængsel()) {
-			spillere[nSpillerNr].setErIFængsel(false);
+		nuvSpillerNr++;
+		if (nuvSpillerNr >= antalSpillere) nuvSpillerNr = 0;
+		if (spillere[nuvSpillerNr].erIFængsel()) {
+			spillere[nuvSpillerNr].setErIFængsel(false);
 			næsteSpillersTur();
 		}
 	}
 	
-	public int getNSpillerNr() {
-		return nSpillerNr;
+	public int getNuvSpillerNr() {
+		return nuvSpillerNr;
 	}
 	
 	public boolean spillerHarTabt() {
