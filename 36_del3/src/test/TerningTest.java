@@ -54,6 +54,7 @@ class TerningTest {
 		}
 
 		System.out.println("Resultat: " + side1 + " " + side2 + " " + side3 + " " + side4 + " " + side5 + " " + side6);
+		
 	}
 
 }
