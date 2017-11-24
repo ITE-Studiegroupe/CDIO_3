@@ -37,7 +37,8 @@ class TerningTest {
 		int side6 = 0;
 
 		for (int i = 0; i < 10000; i++) {
-			int fordeling = terning.getAntalØjne();
+			int fordeling = terning.kastTerning();
+	
 			if (1 == fordeling)
 				side1++;
 			else if (2 == fordeling)
@@ -50,11 +51,10 @@ class TerningTest {
 				side5++;
 			else if (6 == fordeling)
 				side6++;
-
 		}
 
 		System.out.println("Resultat: " + side1 + " " + side2 + " " + side3 + " " + side4 + " " + side5 + " " + side6);
 
-	}
-
+		}
+	
 }
