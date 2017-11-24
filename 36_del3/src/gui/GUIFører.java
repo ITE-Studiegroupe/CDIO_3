@@ -201,6 +201,9 @@ public class GUIFører {
 		GUI_Street felt = (GUI_Street)guiFelter[feltNr];
 		felt.setOwnerName(spiller.getSpillerNavn());
 		felt.setBorder(spiller.getBrik().getBrikFarve());
+		felt = (GUI_Street)guiFelter[feltNr-1];
+		felt.setOwnerName(spiller.getSpillerNavn());
+		felt.setBorder(spiller.getBrik().getBrikFarve());
 	}
 	
 	public void opdaterKontoer(SpillerListe spillere) {
