@@ -16,6 +16,7 @@ import monololy_junior.Brik;
 import monololy_junior.Chancekort;
 import monololy_junior.Konto;
 import monololy_junior.Spiller;
+import monololy_junior.Spillere;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
@@ -95,22 +96,20 @@ public class GUIFører {
 		}
 	}
 
-	public void skabSpillere(Spiller[] spillere) {
-		int antalSpillere = spillere.length;
-		/////////////////////
-		guiSpillere = new GUI_Player[antalSpillere]; ///Kunne måske undlades??
-		//////////////////
+	public void skabSpillere(Spillere spillere) {
+		int antalSpillere = spillere.getAntalSpillere();
+		guiSpillere = new GUI_Player[antalSpillere];
 
 		Konto spillerKonto;
 		Brik spillerBrik;
 		GUI_Car guiBrik;
 		for (int i = 0; i < antalSpillere; i++) {
-			spillerKonto = spillere[i].getKonto();
-			spillerBrik = spillere[i].getBrik();
+			spillerKonto = spillere.getSpiller(i).getKonto();
+			spillerBrik = spillere.getSpiller(i).getBrik();
 			guiBrik = new GUI_Car();
 			guiBrik.setPrimaryColor(spillerBrik.getBrikFarve());
 
-			guiSpillere[i] = new GUI_Player(spillere[i].getSpillerNavn(), 
+			guiSpillere[i] = new GUI_Player(spillere.getSpiller(i).getSpillerNavn(), 
 					spillerKonto.getPengeBeholdning(), 
 					guiBrik);
 
@@ -129,8 +128,7 @@ public class GUIFører {
 		gui.setDie(t);
 	}
 
-	public Color visVælgFarve(Spiller spiller) {
-		String navn = spiller.getSpillerNavn();
+	public Color visVælgFarve(String navn) {
 		String besked = String.format(TekstSpil.TEKSTER[2], navn);
 		String[] farverStreng = new String[] {"Blå", "Rød", "Grøn", "Pink", "Gul", "Sort", "Hvid"};
 		Color[] farver = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.PINK, Color.YELLOW,
@@ -177,7 +175,9 @@ public class GUIFører {
 		gui.showMessage(besked);
 	}
 
-	public boolean visSpilSlutSpilIgen(Spiller vinder, Spiller taber) {
+	public boolean visSpilSlutSpilIgen(Spillere spillere) {
+		Spiller taber = spillere.getTaber();
+		Spiller vinder = spillere.getVinder();
 		String vNavn = vinder.getSpillerNavn();
 		int vPenge = vinder.getKonto().getPengeBeholdning();
 		String tNavn = taber.getSpillerNavn();
@@ -186,13 +186,22 @@ public class GUIFører {
 		return gui.getUserLeftButtonPressed(besked, "Ja", "Nej");
 	}
 
-	public void rykBrik(Spiller spiller, int placering) {
+	public void rykBrik(Spiller spiller) {
 
+		int nuPlads = FRA24TIL40[spiller.getBrik().getTidlPlacering()];
 		int nyPlads = FRA24TIL40[spiller.getBrik().getBrikPlacering()];
 		int spillerNr = spiller.getSpillerNr();
-		placering = FRA24TIL40[placering];
 		
-		guiFelter[placering].setCar(guiSpillere[spillerNr], false);
+		guiFelter[nuPlads].setCar(guiSpillere[spillerNr], false);
 		guiFelter[nyPlads].setCar(guiSpillere[spillerNr], true);
+	}
+	
+	public void opdaterKontoer(Spillere spillere) {
+		
+		for (int i = 0; i < spillere.getAntalSpillere(); i++) {
+			int balance = spillere.getSpiller(i).getKonto().getPengeBeholdning();
+			guiSpillere[i].setBalance(balance);
+		}
+		
 	}
 }
