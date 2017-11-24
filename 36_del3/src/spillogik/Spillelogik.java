@@ -6,7 +6,7 @@ import monololy_junior.Chancekort;
 import monololy_junior.Konto;
 import monololy_junior.Plade;
 import monololy_junior.Spiller;
-import monololy_junior.Spillere;
+import monololy_junior.SpillerListe;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
@@ -21,7 +21,7 @@ public class Spillelogik {
 	private static Konto konto;
 	private static Brik brik;
 
-	public static void CDIO3_logik(int kast, Spillere spillere, Plade plade) {
+	public static void CDIO3_logik(int kast, SpillerListe spillere, Plade plade) {
 
 		Spiller spiller = spillere.getSpiller(spillere.getNSpillerNr());
 		brik = spiller.getBrik();

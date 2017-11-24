@@ -2,7 +2,7 @@ package monololy_junior;
 
 import java.awt.Color;
 
-public class Spillere {
+public class SpillerListe {
 
 	private Spiller[] spillere;
 	private Spiller vinder;
@@ -11,7 +11,7 @@ public class Spillere {
 	private int antalSpillere;
 	private int nSpillerNr;
 
-	public Spillere (int antal, int startKap ,String[] navne, Color[] farver) {
+	public SpillerListe (int antal, int startKap ,String[] navne, Color[] farver) {
 		spillere = new Spiller[antal];
 		for (int i = 0; i < antal; i++) {
 			spillere[i] = new Spiller();

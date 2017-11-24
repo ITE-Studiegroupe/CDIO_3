@@ -16,7 +16,7 @@ import monololy_junior.Brik;
 import monololy_junior.Chancekort;
 import monololy_junior.Konto;
 import monololy_junior.Spiller;
-import monololy_junior.Spillere;
+import monololy_junior.SpillerListe;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
@@ -96,7 +96,7 @@ public class GUIFører {
 		}
 	}
 
-	public void skabSpillere(Spillere spillere) {
+	public void skabSpillere(SpillerListe spillere) {
 		int antalSpillere = spillere.getAntalSpillere();
 		guiSpillere = new GUI_Player[antalSpillere];
 
@@ -175,7 +175,7 @@ public class GUIFører {
 		gui.showMessage(besked);
 	}
 
-	public void visSpilSlut(Spillere spillere) {
+	public void visSpilSlut(SpillerListe spillere) {
 		Spiller taber = spillere.getTaber();
 		Spiller vinder = spillere.getVinder();
 		String vNavn = vinder.getSpillerNavn();
@@ -203,7 +203,7 @@ public class GUIFører {
 		felt.setBorder(spiller.getBrik().getBrikFarve());
 	}
 	
-	public void opdaterKontoer(Spillere spillere) {
+	public void opdaterKontoer(SpillerListe spillere) {
 		
 		for (int i = 0; i < spillere.getAntalSpillere(); i++) {
 			int balance = spillere.getSpiller(i).getKonto().getPengeBeholdning();

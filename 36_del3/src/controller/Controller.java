@@ -5,7 +5,7 @@ import java.awt.Color;
 import gui.GUIFører;
 import monololy_junior.Plade;
 import monololy_junior.Spiller;
-import monololy_junior.Spillere;
+import monololy_junior.SpillerListe;
 import monololy_junior.Terning;
 import monololy_junior.felter.Felt;
 import spillogik.Spillelogik;
@@ -14,7 +14,7 @@ public class Controller {
 
 	private int antalSpillere;
 	private Plade plade;
-	private Spillere spillere;
+	private SpillerListe spillere;
 	private Spiller spiller;
 	private Terning terning = new Terning();
 	private GUIFører gui = GUIFører.getInstans();
@@ -36,7 +36,7 @@ public class Controller {
 			navne[i] = gui.visIndtastNavn();
 			farver[i] = gui.visVælgFarve(navne[i]);
 		}
-		spillere = new Spillere(antalSpillere, 30, navne, farver);
+		spillere = new SpillerListe(antalSpillere, 30, navne, farver);
 		gui.skabSpillere(spillere);
 
 		while (!spillere.spillerHarTabt()) {
