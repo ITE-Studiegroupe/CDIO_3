@@ -23,8 +23,16 @@ public class Spillelogik {
 		pladeObjekt.bygPlade();
 		return pladeObjekt;
 	}
-
+	
+	
 	GUIFører guiObjekt = new GUIFører();
+		
+		
+	
+	
+	
+	
+	
 	
 	
 	
