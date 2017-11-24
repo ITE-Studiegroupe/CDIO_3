@@ -15,7 +15,26 @@ import monololy_junior.felter.Felt_Forretning;
 
 public class Spiller {
 	private String spillerNavn;
-	private Felt_Forretning[] ejetFelter;
+	private int spillerNr;
+	private boolean erIFængsel;
+	
+	public boolean erIFængsel() {
+		return erIFængsel;
+	}
+
+	public void setErIFængsel(boolean erIFængsel) {
+		this.erIFængsel = erIFængsel;
+	}
+
+	public int getSpillerNr() {
+		return spillerNr;
+	}
+
+	public void setSpillerNr(int spillerNr) {
+		this.spillerNr = spillerNr;
+	}
+
+	private Felt_Forretning[] ejetFelter = new Felt_Forretning[0];
 	private Konto konto;
 	private Brik brik;
 
@@ -57,6 +76,7 @@ public class Spiller {
 		Felt_Forretning[] nytFelt = Arrays.copyOf(ejetFelter, ejetFelter.length + 1);
 		nytFelt[nytFelt.length - 1] = spillerFelt;
 		ejetFelter = nytFelt;
+		spillerFelt.setEjer(this);
 	}
 	
 	/**

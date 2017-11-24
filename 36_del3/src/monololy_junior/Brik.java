@@ -6,6 +6,7 @@ public class Brik {
 	
 	private Color brikFarve;
 	private int brikPlacering;
+	private int tidlPlacering;
 	
 	public Color getBrikFarve() {
 		return brikFarve;
@@ -16,11 +17,25 @@ public class Brik {
 	}
 	
 	public int getBrikPlacering() {
+		tidlPlacering = brikPlacering;
 		return brikPlacering;
 	}
 	
 	public void setBrikPlacering(int brikPlacering) {
 		this.brikPlacering = brikPlacering;
 	} 
-	
+	//bruges til at skrive rykke brikken videre fra den nuværende 
+	public void rykBrik(int antalRyk) {
+		int nyPlacering = antalRyk + brikPlacering;
+		if(nyPlacering>23) {
+			nyPlacering = nyPlacering-24;
+		}
+		tidlPlacering = brikPlacering;
+		brikPlacering = nyPlacering;
+	}
+
+	public int getTidlPlacering() {
+		return tidlPlacering;
+	}
+
 }

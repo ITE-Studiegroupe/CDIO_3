@@ -4,16 +4,14 @@ public class Terning {
 	private int antalØjne;
 	
 	
-	private void værdiTerning() {
+	public int kastTerning() {
 		int antalØjne = ((int) (Math.random()*6)+1);
-		this.antalØjne = antalØjne;
-		
-	}
-	
-	public int getVærdi() {
-		værdiTerning();
-		return antalØjne;
+		return this.antalØjne = antalØjne;
 	}
 
+	//Ikke nødvendig, heller ikke attributten
+	public int getAntalØjne() {
+		return antalØjne;
+	}
 }
 
