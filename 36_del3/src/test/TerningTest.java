@@ -37,7 +37,7 @@ class TerningTest {
 		int side6 = 0;
 
 		for (int i = 0; i < 10000; i++) {
-			int fordeling = terning.getVærdi();
+			int fordeling = terning.kastTerning();
 			if (1 == fordeling)
 				side1++;
 			else if (2 == fordeling)
