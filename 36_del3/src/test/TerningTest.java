@@ -50,11 +50,10 @@ class TerningTest {
 				side5++;
 			else if (6 == fordeling)
 				side6++;
-
 		}
 
 		System.out.println("Resultat: " + side1 + " " + side2 + " " + side3 + " " + side4 + " " + side5 + " " + side6);
 		
-	}
+		}
 
 }
