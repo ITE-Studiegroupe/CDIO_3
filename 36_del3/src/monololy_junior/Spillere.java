@@ -15,6 +15,7 @@ public class Spillere {
 		spillere = new Spiller[antal];
 		for (int i = 0; i < antal; i++) {
 			spillere[i] = new Spiller();
+			if (navne[i].equals("")) navne[i] = "Spiller "+(i+1);
 			spillere[i].setSpillerNavn(navne[i]);
 			spillere[i].setSpillerNr(i);
 			Brik brik = new Brik();

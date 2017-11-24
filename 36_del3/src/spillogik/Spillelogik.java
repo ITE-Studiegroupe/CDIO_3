@@ -43,6 +43,7 @@ public class Spillelogik {
 				}
 			} 
 			else {
+				gui.setFeltEjer(spiller);
 				if (konto.indsætPenge(-pris)) {
 					spiller.tilføjFelt(feltF);
 				} 
@@ -68,7 +69,7 @@ public class Spillelogik {
 				break;
 				
 			case 3:
-				spiller.getBrik().setBrikPlacering(v);;
+				spiller.getBrik().setBrikPlacering(v);
 				gui.rykBrik(spiller);
 			}
 		} 
