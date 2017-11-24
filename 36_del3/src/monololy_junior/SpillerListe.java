@@ -7,6 +7,7 @@ public class SpillerListe {
 	private Spiller[] spillere;
 	private Spiller vinder;
 	private Spiller taber;
+	private Terning terning;
 	private boolean spillerHarTabt;
 	private int antalSpillere;
 	private int nuvSpillerNr;
@@ -28,9 +29,12 @@ public class SpillerListe {
 		antalSpillere = antal;
 		spillerHarTabt = false;
 		nuvSpillerNr = 0;
+		terning = new Terning();
 	}
 	
-	
+	public int kastTerning() {
+		return terning.kastTerning();
+	}
 	
 	public void næsteSpillersTur() {
 		nuvSpillerNr++;

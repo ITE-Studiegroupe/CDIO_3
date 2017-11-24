@@ -16,7 +16,6 @@ public class Controller {
 	private Plade plade;
 	private SpillerListe spillere;
 	private Spiller spiller;
-	private Terning terning = new Terning();
 	private GUIFører gui = GUIFører.getInstans();
 	private Felt[] felter;
 
@@ -45,7 +44,7 @@ public class Controller {
 
 			gui.visKastTerninger(spiller);
 
-			int kast = terning.kastTerning();
+			int kast = spillere.kastTerning();
 			gui.visTerning(kast);
 			spiller.getBrik().rykBrik(kast);		
 			gui.rykBrik(spiller);

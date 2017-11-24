@@ -17,6 +17,9 @@ public class Spiller {
 	private String spillerNavn;
 	private int spillerNr;
 	private boolean erIFængsel;
+	private Felt_Forretning[] ejetFelter = new Felt_Forretning[0];
+	private Konto konto;
+	private Brik brik;
 	
 	public boolean erIFængsel() {
 		return erIFængsel;
@@ -33,10 +36,6 @@ public class Spiller {
 	public void setSpillerNr(int spillerNr) {
 		this.spillerNr = spillerNr;
 	}
-
-	private Felt_Forretning[] ejetFelter = new Felt_Forretning[0];
-	private Konto konto;
-	private Brik brik;
 
 	public String getSpillerNavn() {
 		return spillerNavn;
