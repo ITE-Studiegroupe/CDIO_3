@@ -22,11 +22,11 @@ public class ChancekortTest {
 		Plade plade = new Plade();
 		plade.bygPlade();
 
+		Chancekort chancekort;
 		for (int i = 0; i < 8; i++) {
 
 			plade.trækChancekort();
 
-			Chancekort chancekort = new Chancekort();
 			chancekort = plade.trækChancekort();
 
 			System.out.println(chancekort.getChanceKortTekst());
