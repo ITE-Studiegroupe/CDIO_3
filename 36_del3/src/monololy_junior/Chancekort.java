@@ -5,12 +5,6 @@ public class Chancekort {
 	private int kortType;
 	private String chanceKortTekst;
 	
-	/**
-	 * Default konstruktør
-	 */
-	public Chancekort () {
-		
-	}
 	
 	/**
 	 * 
