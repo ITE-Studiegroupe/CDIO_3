@@ -89,6 +89,8 @@ public class Spillelogik {
 		else {
 			
 		}
+		
+		if (spiller.harPasseretStart()) spiller.getKonto().indsætPenge(4); //4kr for at passere Start
 
 	}
 

@@ -68,8 +68,13 @@ public class Spiller {
 	}
 	
 	public Felt_Forretning[] getToEnsFelter() {
-		toEns = false;
 		return toEnsFelter;
+	}
+	
+	public boolean harPasseretStart() {
+		int tidlPlacering = brik.getTidlPlacering();
+		int nuvPlacering = brik.getBrikPlacering();
+		return (nuvPlacering < tidlPlacering);
 	}
 
 	/**
