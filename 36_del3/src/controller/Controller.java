@@ -49,7 +49,7 @@ public class Controller {
 			spiller.getBrik().rykBrik(kast);		
 			gui.rykBrik(spiller);
 
-			Spillelogik.CDIO3_logik(kast, spillere, plade);
+			Spillelogik.CDIO3_logik(spillere, plade);
 
 			gui.opdaterKontoer(spillere);
 			spillere.næsteSpillersTur();

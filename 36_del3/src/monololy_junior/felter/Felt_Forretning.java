@@ -9,8 +9,9 @@ public class Felt_Forretning extends Felt {
 	private int pris;
 	private Spiller ejer;
 	
-	public Felt_Forretning(String navn, int pris, Color bgFarve, Color tekstFarve) {
+	public Felt_Forretning(int feltNr, String navn, int pris, Color bgFarve, Color tekstFarve) {
 		feltNavn = navn;
+		this.feltNr = feltNr;
 		this.pris = pris;
 		this.bgFarve = bgFarve;
 		this.tekstFarve = tekstFarve;

@@ -21,7 +21,7 @@ public class Spillelogik {
 	private static Konto konto;
 	private static Brik brik;
 
-	public static void CDIO3_logik(int kast, SpillerListe spillere, Plade plade) {
+	public static void CDIO3_logik(SpillerListe spillere, Plade plade) {
 
 		Spiller spiller = spillere.getSpiller(spillere.getNuvSpillerNr());
 
@@ -47,6 +47,7 @@ public class Spillelogik {
 				gui.setFeltEjer(spiller);
 				if (konto.indsætPenge(-pris)) {
 					spiller.tilføjFelt(feltF);
+					if (spiller.harToEns()) gui.opdaterFeltPris(spiller.getToEnsFelter());
 				} 
 				else {
 					spillere.setTaber(spiller);
@@ -72,6 +73,7 @@ public class Spillelogik {
 			case 3:
 				spiller.getBrik().setBrikPlacering(v);
 				gui.rykBrik(spiller);
+				CDIO3_logik(spillere, plade);
 			}
 		} 
 		else if (felt instanceof Felt_Fængsel) {

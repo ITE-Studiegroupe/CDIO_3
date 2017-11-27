@@ -16,8 +16,17 @@ public class Felt {
 	protected Color bgFarve;
 	protected Color tekstFarve;
 	protected String feltNavn;
+	protected int feltNr;
 
 	
+	public int getFeltNr() {
+		return feltNr;
+	}
+
+	public void setFeltNr(int feltNr) {
+		this.feltNr = feltNr;
+	}
+
 	public Color getBgFarve() {
 		return bgFarve;
 	}

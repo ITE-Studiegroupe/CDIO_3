@@ -18,8 +18,10 @@ public class Spiller {
 	private int spillerNr;
 	private boolean erIFængsel;
 	private Felt_Forretning[] ejetFelter = new Felt_Forretning[0];
+	private Felt_Forretning[] toEnsFelter;
 	private Konto konto;
 	private Brik brik;
+	private boolean toEns;
 	
 	public boolean erIFængsel() {
 		return erIFængsel;
@@ -60,6 +62,15 @@ public class Spiller {
 	public Konto getKonto() {
 		return konto;
 	}
+	
+	public boolean harToEns() {
+		return toEns;
+	}
+	
+	public Felt_Forretning[] getToEnsFelter() {
+		toEns = false;
+		return toEnsFelter;
+	}
 
 	/**
 	 * @param Tager i mod et objekt af vores klasse Felt.
@@ -71,11 +82,15 @@ public class Spiller {
 	 */
 	
 	public void tilføjFelt(Felt_Forretning spillerFelt) {
-		checkToEns(spillerFelt);
+		Felt_Forretning ensFelt = checkToEns(spillerFelt);
+		toEns = (ensFelt != null);
+		
 		Felt_Forretning[] nytFelt = Arrays.copyOf(ejetFelter, ejetFelter.length + 1);
 		nytFelt[nytFelt.length - 1] = spillerFelt;
 		ejetFelter = nytFelt;
 		spillerFelt.setEjer(this);
+		
+		toEnsFelter = new Felt_Forretning[] {spillerFelt, ensFelt};
 	}
 	
 	/**
@@ -85,15 +100,17 @@ public class Spiller {
 	 * Vi bruger klassen Color til at holde styr på felternes farver.
 	 */
 
-	private void checkToEns(Felt_Forretning købtFelt) {
+	private Felt_Forretning checkToEns(Felt_Forretning købtFelt) {
 		for (int i = 1; i < ejetFelter.length; i++) {
 			Color farve1 = ejetFelter[i].getBgFarve();
 			Color farve2 = købtFelt.getBgFarve();
 			if (farve1.getRGB() == farve2.getRGB()) {
 				forøgVærdi(ejetFelter[i]);
 				forøgVærdi(købtFelt);
+				return ejetFelter[i];
 			}
 		}
+		return null;
 	}
 	
 	/**
