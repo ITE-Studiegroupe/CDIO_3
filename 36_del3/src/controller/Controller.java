@@ -33,6 +33,7 @@ public class Controller {
 		Color[] farver = new Color[antalSpillere];
 		for (int i = 0; i < antalSpillere; i++) {
 			navne[i] = gui.visIndtastNavn();
+			if (navne[i].equals("")) navne[i] = "Spiller "+(i+1);
 			farver[i] = gui.visVælgFarve(navne[i]);
 		}
 		spillere = new SpillerListe(antalSpillere, 30, navne, farver);

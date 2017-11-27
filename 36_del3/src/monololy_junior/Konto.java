@@ -14,7 +14,7 @@ public class Konto {
 	public boolean indsætPenge(int beløb) {
 		int tjek = pengeBeholdning + beløb;
 		boolean resultat;
-		if (tjek < 0) {
+		if (tjek <= 0) {
 			resultat = false;
 		} else {
 			this.pengeBeholdning = tjek;
