@@ -86,16 +86,16 @@ public class Spiller {
 	 * Med klassen Arrays fra java.util bruger vi en metode til at kopiere et array.
 	 */
 	
-	public void tilføjFelt(Felt_Forretning spillerFelt) {
-		Felt_Forretning ensFelt = checkToEns(spillerFelt);
+	public void tilføjFelt(Felt_Forretning købtFelt) {
+		Felt_Forretning ensFelt = checkToEns(købtFelt);
 		toEns = (ensFelt != null);
 		
 		Felt_Forretning[] nytFelt = Arrays.copyOf(ejetFelter, ejetFelter.length + 1);
-		nytFelt[nytFelt.length - 1] = spillerFelt;
+		nytFelt[nytFelt.length - 1] = købtFelt;
 		ejetFelter = nytFelt;
-		spillerFelt.setEjer(this);
+		købtFelt.setEjer(this);
 		
-		toEnsFelter = new Felt_Forretning[] {spillerFelt, ensFelt};
+		toEnsFelter = new Felt_Forretning[] {købtFelt, ensFelt};
 	}
 	
 	/**

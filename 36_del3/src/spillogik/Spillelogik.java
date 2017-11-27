@@ -83,12 +83,6 @@ public class Spillelogik {
 				spiller.setErIFængsel(true);
 			}
 		}
-		else if (felt instanceof Felt_Start) {
-			
-		}
-		else {
-			
-		}
 		
 		if (spiller.harPasseretStart()) spiller.getKonto().indsætPenge(4); //4kr for at passere Start
 
