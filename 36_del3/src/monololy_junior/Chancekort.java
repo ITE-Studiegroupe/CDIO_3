@@ -5,12 +5,6 @@ public class Chancekort {
 	private int kortType;
 	private String chanceKortTekst;
 	
-	/**
-	 * Default konstruktør
-	 */
-	public Chancekort () {
-		
-	}
 	
 	/**
 	 * 
@@ -22,24 +16,6 @@ public class Chancekort {
 		this.værdi = værdi;
 		kortType = type;
 		chanceKortTekst = tekst;
-	}
-	
-	public Chancekort setVærdi(int v) {
-		værdi = v;
-		
-		return this;
-	}
-	
-	public Chancekort setKortType(int t) {
-		kortType = t;
-		
-		return this;
-	}
-	
-	public Chancekort setChanceKortTekst(String s) {
-		chanceKortTekst = s;
-		
-		return this;
 	}
 
 	public int getVærdi() {

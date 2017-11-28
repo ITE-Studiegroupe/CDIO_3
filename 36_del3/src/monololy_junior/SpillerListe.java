@@ -2,20 +2,20 @@ package monololy_junior;
 
 import java.awt.Color;
 
-public class Spillere {
+public class SpillerListe {
 
 	private Spiller[] spillere;
 	private Spiller vinder;
 	private Spiller taber;
+	private Terning terning;
 	private boolean spillerHarTabt;
 	private int antalSpillere;
-	private int nSpillerNr;
+	private int nuvSpillerNr;
 
-	public Spillere (int antal, int startKap ,String[] navne, Color[] farver) {
+	public SpillerListe (int antal, int startKap ,String[] navne, Color[] farver) {
 		spillere = new Spiller[antal];
 		for (int i = 0; i < antal; i++) {
 			spillere[i] = new Spiller();
-			if (navne[i].equals("")) navne[i] = "Spiller "+(i+1);
 			spillere[i].setSpillerNavn(navne[i]);
 			spillere[i].setSpillerNr(i);
 			Brik brik = new Brik();
@@ -27,22 +27,25 @@ public class Spillere {
 		}
 		antalSpillere = antal;
 		spillerHarTabt = false;
-		nSpillerNr = 0;
+		nuvSpillerNr = 0;
+		terning = new Terning();
 	}
 	
-	
+	public int kastTerning() {
+		return terning.kastTerning();
+	}
 	
 	public void næsteSpillersTur() {
-		nSpillerNr++;
-		if (nSpillerNr >= antalSpillere) nSpillerNr = 0;
-		if (spillere[nSpillerNr].erIFængsel()) {
-			spillere[nSpillerNr].setErIFængsel(false);
+		nuvSpillerNr++;
+		if (nuvSpillerNr >= antalSpillere) nuvSpillerNr = 0;
+		if (spillere[nuvSpillerNr].erIFængsel()) {
+			spillere[nuvSpillerNr].setErIFængsel(false);
 			næsteSpillersTur();
 		}
 	}
 	
-	public int getNSpillerNr() {
-		return nSpillerNr;
+	public int getNuvSpillerNr() {
+		return nuvSpillerNr;
 	}
 	
 	public boolean spillerHarTabt() {

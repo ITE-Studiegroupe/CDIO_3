@@ -16,7 +16,7 @@ import monololy_junior.Brik;
 import monololy_junior.Chancekort;
 import monololy_junior.Konto;
 import monololy_junior.Spiller;
-import monololy_junior.Spillere;
+import monololy_junior.SpillerListe;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
@@ -24,13 +24,8 @@ import monololy_junior.felter.Felt_Fængsel;
 import monololy_junior.felter.Felt_Start;
 
 public class GUIFører {
-	private final int[] FRA40TIL24 = new int[] { 0, 1, 1, 2, 2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12,
-			13, 13, 14, 14, 15, 16, 16, 17, 17, 18, 19, 19, 20, 20, 21, 22, 22, 23, 23 };
 
-	private final int[] FRA24TIL40 = new int[] { 0, 2, 4, 5, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 24, 25, 27, 29,
-			30, 32, 34, 35, 37, 39 };
-
-	private GUI_Field[] guiFelter = new GUI_Field[40];
+	private GUI_Field[] guiFelter;
 	private GUI_Player[] guiSpillere;
 	private GUI gui;
 	private static final GUIFører INSTANS = new GUIFører();
@@ -50,11 +45,10 @@ public class GUIFører {
 	private void skabFelter(Felt[] felter) {
 
 		Felt felt;
-		int konverteret;
+		guiFelter = new GUI_Field[felter.length];
 		for (int i = 0; i < guiFelter.length; i++) {
 
-			konverteret = FRA40TIL24[i];
-			felt = felter[konverteret];
+			felt = felter[i];
 
 			if (felt instanceof Felt_Forretning) {
 				guiFelter[i] = new GUI_Street(
@@ -96,7 +90,7 @@ public class GUIFører {
 		}
 	}
 
-	public void skabSpillere(Spillere spillere) {
+	public void skabSpillere(SpillerListe spillere) {
 		int antalSpillere = spillere.getAntalSpillere();
 		guiSpillere = new GUI_Player[antalSpillere];
 
@@ -171,11 +165,7 @@ public class GUIFører {
 		gui.getUserButtonPressed(besked, "Kast");
 	}
 
-	public void visBesked(String besked) {
-		gui.showMessage(besked);
-	}
-
-	public void visSpilSlut(Spillere spillere) {
+	public void visSpilSlut(SpillerListe spillere) {
 		Spiller taber = spillere.getTaber();
 		Spiller vinder = spillere.getVinder();
 		String vNavn = vinder.getSpillerNavn();
@@ -188,8 +178,8 @@ public class GUIFører {
 
 	public void rykBrik(Spiller spiller) {
 
-		int nuPlads = FRA24TIL40[spiller.getBrik().getTidlPlacering()];
-		int nyPlads = FRA24TIL40[spiller.getBrik().getBrikPlacering()];
+		int nuPlads = spiller.getBrik().getTidlPlacering();
+		int nyPlads = spiller.getBrik().getBrikPlacering();
 		int spillerNr = spiller.getSpillerNr();
 		
 		guiFelter[nuPlads].setCar(guiSpillere[spillerNr], false);
@@ -197,18 +187,28 @@ public class GUIFører {
 	}
 	
 	public void setFeltEjer(Spiller spiller) {
-		int feltNr = FRA24TIL40[spiller.getBrik().getBrikPlacering()];
+		int feltNr = spiller.getBrik().getBrikPlacering();
 		GUI_Street felt = (GUI_Street)guiFelter[feltNr];
 		felt.setOwnerName(spiller.getSpillerNavn());
 		felt.setBorder(spiller.getBrik().getBrikFarve());
 	}
 	
-	public void opdaterKontoer(Spillere spillere) {
+	public void opdaterKontoer(SpillerListe spillere) {
 		
 		for (int i = 0; i < spillere.getAntalSpillere(); i++) {
 			int balance = spillere.getSpiller(i).getKonto().getPengeBeholdning();
 			guiSpillere[i].setBalance(balance);
 		}
 		
+	}
+	
+	public void opdaterFeltPris(Felt_Forretning[] felter) {
+		int feltNr;
+		int pris;
+		for (int i = 0; i<felter.length; i++) {
+			feltNr = felter[i].getFeltNr();
+			pris = felter[i].getPris();
+			guiFelter[feltNr].setSubText(pris + "kr.");
+		}
 	}
 }

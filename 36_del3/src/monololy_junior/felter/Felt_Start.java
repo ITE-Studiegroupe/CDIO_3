@@ -7,8 +7,9 @@ public class Felt_Start extends Felt{
 	private int præmie;
 
 	
-	public Felt_Start (String navn, int præmie, Color bgFarve, Color tekstFarve) {
+	public Felt_Start (int feltNr, String navn, int præmie, Color bgFarve, Color tekstFarve) {
 		feltNavn = navn;
+		this.feltNr = feltNr;
 		this.præmie = præmie;
 		this.bgFarve = bgFarve;
 		this.tekstFarve = tekstFarve;

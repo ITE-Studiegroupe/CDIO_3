@@ -6,7 +6,7 @@ import monololy_junior.Chancekort;
 import monololy_junior.Konto;
 import monololy_junior.Plade;
 import monololy_junior.Spiller;
-import monololy_junior.Spillere;
+import monololy_junior.SpillerListe;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
@@ -21,9 +21,10 @@ public class Spillelogik {
 	private static Konto konto;
 	private static Brik brik;
 
-	public static void CDIO3_logik(int kast, Spillere spillere, Plade plade) {
+	public static void CDIO3_logik(SpillerListe spillere, Plade plade) {
 
-		Spiller spiller = spillere.getSpiller(spillere.getNSpillerNr());
+		Spiller spiller = spillere.getSpiller(spillere.getNuvSpillerNr());
+
 		brik = spiller.getBrik();
 		int feltNr = brik.getBrikPlacering();
 		felt = plade.getFelter()[feltNr];
@@ -46,6 +47,7 @@ public class Spillelogik {
 				gui.setFeltEjer(spiller);
 				if (konto.indsætPenge(-pris)) {
 					spiller.tilføjFelt(feltF);
+					if (spiller.harToEns()) gui.opdaterFeltPris(spiller.getToEnsFelter());
 				} 
 				else {
 					spillere.setTaber(spiller);
@@ -71,6 +73,7 @@ public class Spillelogik {
 			case 3:
 				spiller.getBrik().setBrikPlacering(v);
 				gui.rykBrik(spiller);
+				CDIO3_logik(spillere, plade);
 			}
 		} 
 		else if (felt instanceof Felt_Fængsel) {
@@ -80,12 +83,8 @@ public class Spillelogik {
 				spiller.setErIFængsel(true);
 			}
 		}
-		else if (felt instanceof Felt_Start) {
-			
-		}
-		else {
-			
-		}
+		
+		if (spiller.harPasseretStart()) spiller.getKonto().indsætPenge(4); //4kr for at passere Start
 
 	}
 
