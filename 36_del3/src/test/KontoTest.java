@@ -27,7 +27,7 @@ public class KontoTest {
 			succes++;
 		}
 		int actual = succes;
-		int expected = 1; //det skal lykkedes at hæve det samme beløb som der står på kontoen, da man godt må have 0 på kontoen
+		int expected = 0; //det skal ikke lykkedes at hæve det samme beløb som der står på kontoen, da man ikke må have 0 på kontoen
 		
 		assertEquals(expected,actual);
 	
