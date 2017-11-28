@@ -9,9 +9,14 @@ import monololy_junior.SpillerListe;
 import monololy_junior.Terning;
 import monololy_junior.felter.Felt;
 import spillogik.Spillelogik;
-
+/**
+ * Controller klassen har til formål at holde spillet i gang, og sørger for spillernes interaktion med systemet. 
+ * Antal spillere vælges, spillernes navne skrives ind og spillere vælger farve. 
+ * @author Gruppe 36
+ *
+ */
 public class Controller {
-
+	
 	private int antalSpillere;
 	private Plade plade;
 	private SpillerListe spillere;
@@ -21,7 +26,7 @@ public class Controller {
 
 	public void spilKontrol() {
 
-		plade = new Plade();
+		plade = new Plade(); //laver plade objekt
 		plade.bygPlade();
 		felter = plade.getFelter();
 
