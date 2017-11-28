@@ -123,9 +123,9 @@ public class Spiller {
 	 * Forøger værdien af de to felter med samme farve til det dobbelte.
 	 */
 
-	private void forøgVærdi(Felt_Forretning købtFelt) {
-		int forøget = købtFelt.getPris() * 2;
-		købtFelt.setPris(forøget);
+	private void forøgVærdi(Felt_Forretning felt) {
+		int forøget = felt.getPris() * 2;
+		felt.setPris(forøget);
 
 	}
 
