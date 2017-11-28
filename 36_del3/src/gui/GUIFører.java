@@ -165,10 +165,6 @@ public class GUIFører {
 		gui.getUserButtonPressed(besked, "Kast");
 	}
 
-	public void visBesked(String besked) {
-		gui.showMessage(besked);
-	}
-
 	public void visSpilSlut(SpillerListe spillere) {
 		Spiller taber = spillere.getTaber();
 		Spiller vinder = spillere.getVinder();

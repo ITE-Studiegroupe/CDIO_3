@@ -17,9 +17,5 @@ public class Felt_Fængsel extends Felt{
 		return erFængsel;
 	}
 
-	public void setErFængsel(boolean erFængsel) {
-		this.erFængsel = erFængsel;
-
-	}
 
 }
