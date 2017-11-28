@@ -17,24 +17,6 @@ public class Chancekort {
 		kortType = type;
 		chanceKortTekst = tekst;
 	}
-	
-	public Chancekort setVærdi(int v) {
-		værdi = v;
-		
-		return this;
-	}
-	
-	public Chancekort setKortType(int t) {
-		kortType = t;
-		
-		return this;
-	}
-	
-	public Chancekort setChanceKortTekst(String s) {
-		chanceKortTekst = s;
-		
-		return this;
-	}
 
 	public int getVærdi() {
 		return værdi;
