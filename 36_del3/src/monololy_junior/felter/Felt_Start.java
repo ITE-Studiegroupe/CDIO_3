@@ -18,12 +18,6 @@ public class Felt_Start extends Felt{
 
 	public int getPræmie() {
 		return præmie;
-	}
-
-	public void setPræmie(int præmie) {
-		this.præmie = præmie;
-	}
-
-	
+	}	
 	
 }
