@@ -19,10 +19,7 @@ public class Felt_Chance extends Felt{
  * @param tekstFarve
  */
 	public Felt_Chance(int feltNr, String tekst, Color bgFarve, Color tekstFarve) {
-		feltNavn = tekst;
-		this.feltNr = feltNr;
-		this.bgFarve = bgFarve;
-		this.tekstFarve = tekstFarve;
+		super(feltNr, tekst, bgFarve, tekstFarve);
 	}
 	
 }

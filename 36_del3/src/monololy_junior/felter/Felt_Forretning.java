@@ -25,11 +25,8 @@ public class Felt_Forretning extends Felt {
  * @param tekstFarve
  */
 	public Felt_Forretning(int feltNr, String navn, int pris, Color bgFarve, Color tekstFarve) {
-		feltNavn = navn;
-		this.feltNr = feltNr;
+		super(feltNr, navn, bgFarve, tekstFarve);
 		this.pris = pris;
-		this.bgFarve = bgFarve;
-		this.tekstFarve = tekstFarve;
 	}
 	
 /**
