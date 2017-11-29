@@ -20,11 +20,6 @@ import monololy_junior.felter.Felt_Start;
  */
 public class Spillelogik {
 
-	// Spillogikkens atributter.
-	private static GUIFører gui = GUIFører.getInstans();
-	private static Felt felt;
-	private static Konto konto;
-	private static Brik brik;
 
 /**
  * Metode der tager	imod et array af spillere og en plade
@@ -36,16 +31,17 @@ public class Spillelogik {
 /**
  * Finder ud af hvilken spiller det er 		
  */
+		GUIFører gui = GUIFører.getInstans();
 		Spiller spiller = spillere.getSpiller(spillere.getNuvSpillerNr());
 
 /**
  * Brikkens placering lægges i en variabel feltNr
  * Finder det felt med det nummer		
  */
-		brik = spiller.getBrik();
+		Brik brik = spiller.getBrik();
 		int feltNr = brik.getBrikPlacering();
-		felt = plade.getFelter()[feltNr];
-		konto = spiller.getKonto();
+		Felt felt = plade.getFelter()[feltNr];
+		Konto konto = spiller.getKonto();
 
 /**
  * Kontrollerer hvilket felt spilleren lander på, forretning
@@ -63,7 +59,7 @@ public class Spillelogik {
 
 				if (!konto.indsætPenge(-pris)) {
 					spillere.setTaber(spiller);
-			}
+				}
 			} 
 			
 /**
