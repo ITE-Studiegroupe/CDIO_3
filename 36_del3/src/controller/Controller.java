@@ -10,6 +10,11 @@ import monololy_junior.Terning;
 import monololy_junior.felter.Felt;
 import spillogik.Spillelogik;
 
+/**
+ * Klasse: Controller
+ * @author Gruppe_36
+ * Klassen har til formål at kontrollere spillet
+ */
 public class Controller {
 
 	private int antalSpillere;
@@ -17,28 +22,28 @@ public class Controller {
 	private SpillerListe spillere;
 	private Spiller spiller;
 	private GUIFører gui = GUIFører.getInstans();
-	private Felt[] felter;
 
 	public void spilKontrol() {
 
 		plade = new Plade();
 		plade.bygPlade();
-		felter = plade.getFelter();
 
-		gui.skabGUI(felter);
+		gui.skabGUI(plade.getFelter());
 
-		antalSpillere = gui.visVælgAntalSpillere();
+		antalSpillere = gui.visVælgAntalSpillere(); //Returnerer antallet af spillere brugeren har valgt
 
 		String[] navne = new String[antalSpillere];
 		Color[] farver = new Color[antalSpillere];
 		for (int i = 0; i < antalSpillere; i++) {
 			navne[i] = gui.visIndtastNavn();
-			if (navne[i].equals("")) navne[i] = "Spiller "+(i+1);
+			if (navne[i].equals("")) navne[i] = "Spiller "+(i+1); //Opretter spiller som navn, hvis brugeren ikke har 
 			farver[i] = gui.visVælgFarve(navne[i]);
 		}
-		spillere = new SpillerListe(antalSpillere, 30, navne, farver);
+		
+		spillere = new SpillerListe(antalSpillere, 30, navne, farver); //Sætter parameter fra SpillerLsite
 		gui.skabSpillere(spillere);
 
+		//Kører så længe ingen spillere har tabt
 		while (!spillere.spillerHarTabt()) {
 
 			spiller = spillere.getSpiller(spillere.getNuvSpillerNr());
@@ -50,11 +55,13 @@ public class Controller {
 			spiller.getBrik().rykBrik(kast);		
 			gui.rykBrik(spiller);
 
-			Spillelogik.CDIO3_logik(spillere, plade);
+			Spillelogik.CDIO3_logik(spillere, plade);//Kalder spillelogik
 
 			gui.opdaterKontoer(spillere);
 			spillere.næsteSpillersTur();
 		}
+		
+		//Vises når en spiller har tabt
 		gui.visSpilSlut(spillere);
 		System.exit(0);
 
