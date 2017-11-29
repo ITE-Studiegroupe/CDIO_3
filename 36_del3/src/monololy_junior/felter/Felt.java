@@ -12,16 +12,22 @@ import monololy_junior.Spiller;
 public class Felt {
 	
 	
-	protected Color bgFarve;
-	protected Color tekstFarve;
-	protected String feltNavn;
-	protected int feltNr;
+	private Color bgFarve;
+	private Color tekstFarve;
+	private String feltNavn;
+	private int feltNr;
 
+	public Felt(int feltNr, String feltNavn, Color bgFarve, Color tekstFarve) {
+		this.feltNr = feltNr;
+		this.feltNavn = feltNavn;
+		this.bgFarve = bgFarve;
+		this.tekstFarve = tekstFarve;
+	}
+	
 /**
  * Metoden returnerer feltNr
  * @return feltNr
  */
-	
 	public int getFeltNr() {
 		return feltNr;
 	}

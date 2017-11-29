@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>296</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Terning
+--
+-antalØjne:int
+--
++Terning()
++KastTerning():int
++getAntalØjne():int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>584</x>
+      <y>0</y>
+      <w>232</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>Spiller
+--
+-spillerNavn:String
+-spillerNr:int
+-erIFængsel:boolean
+-ejetFelter:Felt_Forretning[]
+-konto:Konto
+-brik:Brik
+--
++setMetoder()
++getMetoder()
+-checkToEns(købtFelt:Felt):Felt_Forretning
+-forøgVærdiFelt(felt:Felt[]):void
++tilføjFelt(købtFeltFelt:Felt):void
++harPasseretStart():boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>864</x>
+      <y>320</y>
+      <w>112</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>608</x>
+      <y>544</y>
+      <w>192</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Plade
+--
++FÆNGSEL:int=6{final}
+-chancekort:Chancekort[]
+-felter:Felt[]
+--
++Plade()
++bygPlade():void
+-bygFelter():void
+-bygChancekort():void
++trækChancekort():Chancekort
++getFelter():Felt</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>456</y>
+      <w>24</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>16</y>
+      <w>216</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Brik
+--
+-brikFarve:Color
+-brikPlacering:int
+-tidlPlacering:int
+--
+Brik()
++getBrikFarve():Color
++setBrikFarve(brikFarve:Color):void
++getBrikPlacering():int
++setBrikPlacering(brikPlacering:int):void
++rykBrik(antalRyk:int):void
++getTidlPlacering():int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>40</y>
+      <w>104</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>776</y>
+      <w>200</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Felt	
+--
+#bgFarve:Color
+#tekstFarve:Color
+#feltNavn:String
+--
++Felt()
++getBgFarve():Color
++setBgFarve(bgFarve:Color):void
++getTekstFarve():Color
++setTekstFarve(tekstFarve:Color):void
++getFeltNavn():String
++setFeltNavn(feltTekst:String):void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>512</x>
+      <y>1040</y>
+      <w>408</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>Felt_Forretning
+--
+-pris: int 
+--
++Felt_Forretning(feltNr:int, navn:String, pris:int, bgFarve:Color, tekstFarve:Color)
++harEjer(): boolean
++setEjer(Spiller): void
++getEjer(): Spiller
++setPris(int): void
++getPris(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>992</y>
+      <w>864</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;20.0;1060.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>184</y>
+      <w>40</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=2..4
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>536</x>
+      <y>280</y>
+      <w>336</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>SpillerListe	
+--
+-spillere:Spiller[]
+-vinder:Spiller
+-taber:Spiller
+-terning:Terning
+-spillerHarTabt:booleam
+-antalSpillere:int
+-nuvSpillerNr:int
+--
++SpillerListe(antal:int, startKap:int, navne:String[], farver:Color[])
++næsteSpillersTur():void
++getVinder():Spiller
++getMetoder()
++setMetoder()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>32</y>
+      <w>256</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Konto	
+--
+-pengeBeholdning():int
+--
++getPengeBeholdning():int
++setPengeBeholdning(pengeBeholdning:int):void
++indsætPenge(beløb:int):boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>808</x>
+      <y>56</y>
+      <w>104</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>680</y>
+      <w>32</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=24</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>288</x>
+      <y>544</y>
+      <w>224</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Chancekort
+--
+-værdi:int
+-kortType:int
+-chanceKortTekst:String
+--
++Chancekort()
++Chancekort(værdi:int, type:int, tekst:String)
++getVærdi():int
++getKortType():int
++getChanceKortTekst():String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>736</x>
+      <y>1192</y>
+      <w>464</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Felt_Fængsel	
+--
+-erFængsel: boolean
+--
++Felt_Fængsel(feltNr:int, tekst:String, erFængsel:boolean, bgFarve:Color, tekstFarve:Color)
++erFængsel(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>304</x>
+      <y>1192</y>
+      <w>408</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Felt_Start
+--
+-præmie: int
+--
++Felt_Start(feltNr:int, navn:String, præmie:int, bgFarve:Color, tekstFarve:Color)
++getPræmie(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>1040</y>
+      <w>344</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Felt_Helle
+--
+ 
+--
++Felt_Helle(feltNr:int, tekst:String, bgFarve:Color, tekstFarve:Color)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>928</y>
+      <w>24</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>488</x>
+      <y>1000</y>
+      <w>24</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>1000</y>
+      <w>24</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>1040</y>
+      <w>360</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Felt_Chance
+--
+
+--
++Felt_Chance(feltNr:int, tekst:String, bgFarve:Color, tekstFarve:Color)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>592</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=8
+</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>1000</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>1000</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1128</x>
+      <y>1000</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>

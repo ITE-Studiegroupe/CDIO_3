@@ -21,11 +21,8 @@ public class Felt_Fængsel extends Felt{
  * @param tekstFarve
  */
 	public Felt_Fængsel(int feltNr, String tekst, boolean erFængsel, Color bgFarve, Color tekstFarve) {
-		feltNavn = tekst;
-		this.feltNr = feltNr;
+		super(feltNr, tekst, bgFarve, tekstFarve);
 		this.erFængsel = erFængsel;
-		this.bgFarve = bgFarve;
-		this.tekstFarve = tekstFarve;
 	}
 /**
  * Metoden returnerer erFængsel i form af en boolean
