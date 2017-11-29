@@ -11,7 +11,7 @@ import java.awt.Color;
 public class Felt_Helle extends Felt {
 
 /**
- * Denne metode, kalder metoder fra super-klassen, Felt
+ * Denne metode henter attributter til konstruktøren fra super-klassen Felt	
  * @param feltNr
  * @param tekst
  * @param bgFarve

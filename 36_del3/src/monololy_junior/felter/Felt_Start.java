@@ -14,7 +14,7 @@ public class Felt_Start extends Felt{
 	private int præmie;
 
 /**
- * Denne metode, kalder metoder fra super-klassen, Felt
+ * Denne metode henter attributter til konstruktøren fra super-klassen Felt	
  * @param feltNr
  * @param tekst
  * @param præmie

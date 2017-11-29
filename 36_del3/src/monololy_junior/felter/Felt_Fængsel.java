@@ -13,7 +13,7 @@ public class Felt_Fængsel extends Felt{
 	private boolean erFængsel;
 	
 /**
- * Denne metode, henter metoder fra super-klassen Felt	
+ * Denne metode henter attributter til konstruktøren fra super-klassen Felt	
  * @param feltNr
  * @param tekst
  * @param erFængsel

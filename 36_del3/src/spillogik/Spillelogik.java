@@ -131,7 +131,7 @@ public class Spillelogik {
 /**
  * spilleren for 4 point når start passeres		
  */
-		if (spiller.harPasseretStart()) spiller.getKonto().indsætPenge(4); //4kr for at passere Start
+		if (spiller.harPasseretStart()) spiller.getKonto().indsætPenge(2); //2kr for at passere Start
 
 	}
 

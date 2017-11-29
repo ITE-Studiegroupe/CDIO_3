@@ -17,7 +17,7 @@ public class Felt_Forretning extends Felt {
 	private Spiller ejer;
 	
 /**
- * Denne metode, henter metoder fra super-klassen, Felt	
+ * Denne metode henter attributter til konstruktøren fra super-klassen Felt	
  * @param feltNr
  * @param navn
  * @param pris
