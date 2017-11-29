@@ -43,7 +43,7 @@ public class Brik {
 	 * @param brikPlacering int
 	 */
 	public void setBrikPlacering(int brikPlacering) {
-		tidlPlacering = brikPlacering;
+		tidlPlacering = this.brikPlacering;
 		this.brikPlacering = brikPlacering;
 	} 
 	
