@@ -1,8 +1,6 @@
 package monololy_junior;
 
 import java.awt.Color;
-
-import gui.GUIFører;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
@@ -34,53 +32,53 @@ public class Plade {
 	//Bygfelter metode
 	private void bygFelter() {
 		
-		felter[0] = new Felt_Start(Tekst.TekstFeltNavne.TEKSTER[0], 4, Color.WHITE, Color.BLACK);
+		felter[0] = new Felt_Start(Tekst.TekstFeltNavne.TEKSTER[0], 3, Color.WHITE, Color.BLACK);
 		
-		felter[1] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[1], 1, Color.RED, Color.BLACK);
+		felter[1] = new Felt_Forretning(1, Tekst.TekstFeltNavne.TEKSTER[1], 1, Color.RED, Color.BLACK);
 		
-		felter[2] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[2], 1, Color.RED, Color.BLACK);
+		felter[2] = new Felt_Forretning(2, Tekst.TekstFeltNavne.TEKSTER[2], 1, Color.RED, Color.BLACK);
 		
 		felter[3] = new Felt_Chance(Tekst.TekstFeltNavne.TEKSTER[3], Color.GRAY, Color.ORANGE);
 		
-		felter[4] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[4], 1, Color.BLUE, Color.BLACK);
+		felter[4] = new Felt_Forretning(4, Tekst.TekstFeltNavne.TEKSTER[4], 1, Color.BLUE, Color.BLACK);
 		
-		felter[5] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[5], 1, Color.BLUE, Color.BLACK);
+		felter[5] = new Felt_Forretning(5, Tekst.TekstFeltNavne.TEKSTER[5], 1, Color.BLUE, Color.BLACK);
 		
 		felter[6] = new Felt_Fængsel(Tekst.TekstFeltNavne.TEKSTER[6], true, Color.BLACK, Color.WHITE);
 		
-		felter[7] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[7], 2, Color.PINK, Color.BLACK);
+		felter[7] = new Felt_Forretning(7, Tekst.TekstFeltNavne.TEKSTER[7], 2, Color.PINK, Color.BLACK);
 		
-		felter[8] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[8], 2, Color.PINK, Color.BLACK);
+		felter[8] = new Felt_Forretning(8, Tekst.TekstFeltNavne.TEKSTER[8], 2, Color.PINK, Color.BLACK);
 		
 		felter[9] = new Felt_Chance(Tekst.TekstFeltNavne.TEKSTER[9], Color.GRAY, Color.ORANGE);
 		
-		felter[10] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[10], 2, Color.YELLOW, Color.BLACK);
+		felter[10] = new Felt_Forretning(10, Tekst.TekstFeltNavne.TEKSTER[10], 2, Color.YELLOW, Color.BLACK);
 		
-		felter[11] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[11], 2, Color.YELLOW, Color.BLACK);
+		felter[11] = new Felt_Forretning(11, Tekst.TekstFeltNavne.TEKSTER[11], 2, Color.YELLOW, Color.BLACK);
 		
 		felter[12] = new Felt_Helle(Tekst.TekstFeltNavne.TEKSTER[12], Color.WHITE, Color.BLACK);
 		
-		felter[13] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[13], 3, Color.ORANGE, Color.BLACK);
+		felter[13] = new Felt_Forretning(13, Tekst.TekstFeltNavne.TEKSTER[13], 3, Color.ORANGE, Color.BLACK);
 		
-		felter[14] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[14], 3, Color.ORANGE, Color.BLACK);
+		felter[14] = new Felt_Forretning(14, Tekst.TekstFeltNavne.TEKSTER[14], 3, Color.ORANGE, Color.BLACK);
 		
 		felter[15] = new Felt_Chance(Tekst.TekstFeltNavne.TEKSTER[15], Color.GRAY, Color.ORANGE);
 		
-		felter[16] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[16], 3, Color.CYAN, Color.BLACK);
+		felter[16] = new Felt_Forretning(16, Tekst.TekstFeltNavne.TEKSTER[16], 3, Color.CYAN, Color.BLACK);
 		
-		felter[17] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[17], 3, Color.CYAN, Color.BLACK);
+		felter[17] = new Felt_Forretning(17, Tekst.TekstFeltNavne.TEKSTER[17], 3, Color.CYAN, Color.BLACK);
 		
 		felter[18] = new Felt_Fængsel(Tekst.TekstFeltNavne.TEKSTER[18], false, Color.BLACK, Color.WHITE);
 		
-		felter[19] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[19], 4, Color.GREEN, Color.BLACK);
+		felter[19] = new Felt_Forretning(19, Tekst.TekstFeltNavne.TEKSTER[19], 4, Color.GREEN, Color.BLACK);
 		
-		felter[20] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[20], 4, Color.GREEN, Color.BLACK);
+		felter[20] = new Felt_Forretning(20, Tekst.TekstFeltNavne.TEKSTER[20], 4, Color.GREEN, Color.BLACK);
 		
 		felter[21] = new Felt_Chance(Tekst.TekstFeltNavne.TEKSTER[21], Color.GRAY, Color.ORANGE);
 		
-		felter[22] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[22], 4, Color.BLUE, Color.BLACK);
+		felter[22] = new Felt_Forretning(22, Tekst.TekstFeltNavne.TEKSTER[22], 4, Color.BLUE, Color.BLACK);
 		
-		felter[23] = new Felt_Forretning(Tekst.TekstFeltNavne.TEKSTER[23], 4, Color.BLUE, Color.BLACK);
+		felter[23] = new Felt_Forretning(23, Tekst.TekstFeltNavne.TEKSTER[23], 4, Color.BLUE, Color.BLACK);
 		}
 	
 	/**
@@ -118,6 +116,11 @@ public class Plade {
 		return chancekort[trukketChancekort];
 
 		}
+		
+		/**
+		 * Returnerer 
+		 * @return
+		 */
 		
 		public Felt[] getFelter() {
 			return felter;

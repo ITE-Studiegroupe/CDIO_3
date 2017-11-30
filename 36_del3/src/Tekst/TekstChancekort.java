@@ -1,6 +1,15 @@
 package Tekst;
 
+/**
+ * Klasse: TekstChancekort
+ * @author Gruppe_36
+ * Klassen styrer teksterne til chancekort
+ */
 public class TekstChancekort {
+	
+/**
+ * Metoden er en string array med 8 index	
+ */
 	public final static String[] TEKSTER =
 		{
 		"Du skylder banken penge! Betal 3kr.",

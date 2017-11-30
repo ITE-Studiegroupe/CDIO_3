@@ -17,6 +17,11 @@ public class Spiller {
 	private String spillerNavn;
 	private int spillerNr;
 	private boolean erIFængsel;
+	private Felt_Forretning[] ejetFelter = new Felt_Forretning[0];
+	private Felt_Forretning[] toEnsFelter;
+	private Konto konto;
+	private Brik brik;
+	private boolean toEns;
 	
 	public boolean erIFængsel() {
 		return erIFængsel;
@@ -33,10 +38,6 @@ public class Spiller {
 	public void setSpillerNr(int spillerNr) {
 		this.spillerNr = spillerNr;
 	}
-
-	private Felt_Forretning[] ejetFelter = new Felt_Forretning[0];
-	private Konto konto;
-	private Brik brik;
 
 	public String getSpillerNavn() {
 		return spillerNavn;
@@ -61,6 +62,20 @@ public class Spiller {
 	public Konto getKonto() {
 		return konto;
 	}
+	
+	public boolean harToEns() {
+		return toEns;
+	}
+	
+	public Felt_Forretning[] getToEnsFelter() {
+		return toEnsFelter;
+	}
+	
+	public boolean harPasseretStart() {
+		int tidlPlacering = brik.getTidlPlacering();
+		int nuvPlacering = brik.getBrikPlacering();
+		return (nuvPlacering < tidlPlacering);
+	}
 
 	/**
 	 * @param Tager i mod et objekt af vores klasse Felt.
@@ -71,12 +86,16 @@ public class Spiller {
 	 * Med klassen Arrays fra java.util bruger vi en metode til at kopiere et array.
 	 */
 	
-	public void tilføjFelt(Felt_Forretning spillerFelt) {
-		checkToEns(spillerFelt);
+	public void tilføjFelt(Felt_Forretning købtFelt) {
+		Felt_Forretning ensFelt = checkToEns(købtFelt);
+		toEns = (ensFelt != null);
+		
 		Felt_Forretning[] nytFelt = Arrays.copyOf(ejetFelter, ejetFelter.length + 1);
-		nytFelt[nytFelt.length - 1] = spillerFelt;
+		nytFelt[nytFelt.length - 1] = købtFelt;
 		ejetFelter = nytFelt;
-		spillerFelt.setEjer(this);
+		købtFelt.setEjer(this);
+		
+		toEnsFelter = new Felt_Forretning[] {købtFelt, ensFelt};
 	}
 	
 	/**
@@ -86,15 +105,17 @@ public class Spiller {
 	 * Vi bruger klassen Color til at holde styr på felternes farver.
 	 */
 
-	private void checkToEns(Felt_Forretning købtFelt) {
+	private Felt_Forretning checkToEns(Felt_Forretning købtFelt) {
 		for (int i = 1; i < ejetFelter.length; i++) {
 			Color farve1 = ejetFelter[i].getBgFarve();
 			Color farve2 = købtFelt.getBgFarve();
 			if (farve1.getRGB() == farve2.getRGB()) {
 				forøgVærdi(ejetFelter[i]);
 				forøgVærdi(købtFelt);
+				return ejetFelter[i];
 			}
 		}
+		return null;
 	}
 	
 	/**
@@ -102,9 +123,9 @@ public class Spiller {
 	 * Forøger værdien af de to felter med samme farve til det dobbelte.
 	 */
 
-	private void forøgVærdi(Felt_Forretning købtFelt) {
-		int forøget = købtFelt.getPris() * 2;
-		købtFelt.setPris(forøget);
+	private void forøgVærdi(Felt_Forretning felt) {
+		int forøget = felt.getPris() * 2;
+		felt.setPris(forøget);
 
 	}
 

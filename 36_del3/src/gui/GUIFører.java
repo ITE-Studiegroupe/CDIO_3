@@ -23,38 +23,52 @@ import monololy_junior.felter.Felt_Forretning;
 import monololy_junior.felter.Felt_Fængsel;
 import monololy_junior.felter.Felt_Start;
 
+/**
+ * GUIFører singletonen håndterer og simplificerer kommunikationen med GUI'en.
+ * @author Gruppe 36
+ */
 public class GUIFører {
-	private final int[] FRA40TIL24 = new int[] { 0, 1, 1, 2, 2, 3, 4, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 12,
-			13, 13, 14, 14, 15, 16, 16, 17, 17, 18, 19, 19, 20, 20, 21, 22, 22, 23, 23 };
 
-	private final int[] FRA24TIL40 = new int[] { 0, 2, 4, 5, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 24, 25, 27, 29,
-			30, 32, 34, 35, 37, 39 };
-
-	private GUI_Field[] guiFelter = new GUI_Field[40];
+	private GUI_Field[] guiFelter;
 	private GUI_Player[] guiSpillere;
 	private GUI gui;
 	private static final GUIFører INSTANS = new GUIFører();
 
+	/**
+	 * Privat konstruktør
+	 */
 	private GUIFører() {}
 
+	/**
+	 * Returnerer GUIFører instansen.
+	 * @return INSTANS GUIFører
+	 */
 	public static GUIFører getInstans() {
 		return INSTANS;
 	}
 
-
+	/**
+	 * Skaber felterne {@link #skabFelter(int, int, Object) se skabFelter()}
+	 * og starter instantierer GUI'en.<br>
+	 * <u><b>Kaldes før de andre metoder kan fungere.</b></u>
+	 * @param felter Felt[]
+	 */
 	public void skabGUI(Felt[] felter) {
 		skabFelter(felter);
 		gui = new GUI(guiFelter);
 	}
 
+	/**
+	 * Skaber de forskellige typer GUI felter udfra vores Felt underklasser.
+	 * @param felter Felt[]
+	 */
 	private void skabFelter(Felt[] felter) {
 
 		Felt felt;
-		int konverteret;
+		guiFelter = new GUI_Field[felter.length];
 		for (int i = 0; i < guiFelter.length; i++) {
 
-			konverteret = FRA40TIL24[i];
-			felt = felter[konverteret];
+			felt = felter[i];
 
 			if (felt instanceof Felt_Forretning) {
 				guiFelter[i] = new GUI_Street(
@@ -96,6 +110,10 @@ public class GUIFører {
 		}
 	}
 
+	/**
+	 * Skaber GUI spillerne udfra vores SpillerListe.
+	 * @param spillere SpillerListe
+	 */
 	public void skabSpillere(SpillerListe spillere) {
 		int antalSpillere = spillere.getAntalSpillere();
 		guiSpillere = new GUI_Player[antalSpillere];
@@ -119,15 +137,29 @@ public class GUIFører {
 
 	}
 
+	/**
+	 * Viser det givne Chancekort i GUI'en.
+	 * @param kort Chancekort
+	 */
 	public void  visChanceKort(Chancekort kort) {
 		String kortTekst = kort.getChanceKortTekst();
 		gui.displayChanceCard(kortTekst);
 	}
 
+	/**
+	 * Viser en terning i GUI'en med det givne antal øjne.
+	 * @param t int
+	 */
 	public void visTerning(int t) {
 		gui.setDie(t);
 	}
 
+	/**
+	 * Viser en personlig (med spillerens navn) vælg farve dialog med en liste brugeren kan vælge farve fra.<br>
+	 * Den valgte farve returneres
+	 * @param navn String
+	 * @return den valgte farve Color
+	 */
 	public Color visVælgFarve(String navn) {
 		String besked = String.format(TekstSpil.TEKSTER[2], navn);
 		String[] farverStreng = new String[] {"Blå", "Rød", "Grøn", "Pink", "Gul", "Sort", "Hvid"};
@@ -154,16 +186,30 @@ public class GUIFører {
 		return farve;
 	}
 
+	/**
+	 * Viser en dialog hvor man kan vælge antallet af spilllere.<br>
+	 * Det valgte antal returneres.
+	 * @return antal spillere int
+	 */
 	public int visVælgAntalSpillere() {
 		String valg = gui.getUserSelection(TekstSpil.TEKSTER[0], "2","3","4");
 
 		return Integer.parseInt(valg);
 	}
 
+	/**
+	 * Viser en dialog med et inputfelt man skal taste sit navn i.<br>
+	 * Den indtastet navn returneres.
+	 * @return input String
+	 */
 	public String visIndtastNavn() {
 		return gui.getUserString(TekstSpil.TEKSTER[1]);
 	}
 
+	/**
+	 * Viser en dialog som beder spilleren om at kaste terningen.
+	 * @param spiller Spiller
+	 */
 	public void visKastTerninger(Spiller spiller) {
 		String navn = spiller.getSpillerNavn();
 		String besked = String.format(TekstSpil.TEKSTER[3], navn);
@@ -171,10 +217,10 @@ public class GUIFører {
 		gui.getUserButtonPressed(besked, "Kast");
 	}
 
-	public void visBesked(String besked) {
-		gui.showMessage(besked);
-	}
-
+	/**
+	 * Viser en dialog om spillet er slut med vinderens og tabers navn.
+	 * @param spillere SpillerListe
+	 */
 	public void visSpilSlut(SpillerListe spillere) {
 		Spiller taber = spillere.getTaber();
 		Spiller vinder = spillere.getVinder();
@@ -186,23 +232,35 @@ public class GUIFører {
 		gui.showMessage(besked);
 	}
 
+	/**
+	 * Rykker spillerens brik i GUI'en
+	 * @param spiller Spiller
+	 */
 	public void rykBrik(Spiller spiller) {
 
-		int nuPlads = FRA24TIL40[spiller.getBrik().getTidlPlacering()];
-		int nyPlads = FRA24TIL40[spiller.getBrik().getBrikPlacering()];
+		int nuPlads = spiller.getBrik().getTidlPlacering();
+		int nyPlads = spiller.getBrik().getBrikPlacering();
 		int spillerNr = spiller.getSpillerNr();
 		
 		guiFelter[nuPlads].setCar(guiSpillere[spillerNr], false);
 		guiFelter[nyPlads].setCar(guiSpillere[spillerNr], true);
 	}
 	
+	/**
+	 * Sætter spilleren som ejeren af det felt hans brik står på, i GUI'en.
+	 * @param spiller Spiller
+	 */
 	public void setFeltEjer(Spiller spiller) {
-		int feltNr = FRA24TIL40[spiller.getBrik().getBrikPlacering()];
+		int feltNr = spiller.getBrik().getBrikPlacering();
 		GUI_Street felt = (GUI_Street)guiFelter[feltNr];
 		felt.setOwnerName(spiller.getSpillerNavn());
 		felt.setBorder(spiller.getBrik().getBrikFarve());
 	}
 	
+	/**
+	 * Sætter spillerens beholdning i GUI'en.
+	 * @param spillere SpillerListe
+	 */
 	public void opdaterKontoer(SpillerListe spillere) {
 		
 		for (int i = 0; i < spillere.getAntalSpillere(); i++) {
@@ -210,5 +268,19 @@ public class GUIFører {
 			guiSpillere[i].setBalance(balance);
 		}
 		
+	}
+	
+	/**
+	 * Sætter de givne felters pris i GUI'en.
+	 * @param felter Felt_Forretning
+	 */
+	public void opdaterFeltPris(Felt_Forretning[] felter) {
+		int feltNr;
+		int pris;
+		for (int i = 0; i<felter.length; i++) {
+			feltNr = felter[i].getFeltNr();
+			pris = felter[i].getPris();
+			guiFelter[feltNr].setSubText(pris + "kr.");
+		}
 	}
 }
