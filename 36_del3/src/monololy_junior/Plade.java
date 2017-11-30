@@ -32,7 +32,7 @@ public class Plade {
 	//Bygfelter metode
 	private void bygFelter() {
 		
-		felter[0] = new Felt_Start(Tekst.TekstFeltNavne.TEKSTER[0], 3, Color.WHITE, Color.BLACK);
+		felter[0] = new Felt_Start(Tekst.TekstFeltNavne.TEKSTER[0], 2, Color.WHITE, Color.BLACK);
 		
 		felter[1] = new Felt_Forretning(1, Tekst.TekstFeltNavne.TEKSTER[1], 1, Color.RED, Color.BLACK);
 		
