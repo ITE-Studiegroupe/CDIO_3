@@ -15,6 +15,7 @@ public class Felt_Forretning extends Felt {
 
 	private int pris;
 	private Spiller ejer;
+	private int feltNr;
 	
 /**
  * Denne metode henter attributter til konstruktøren fra super-klassen Felt	
@@ -25,8 +26,9 @@ public class Felt_Forretning extends Felt {
  * @param tekstFarve
  */
 	public Felt_Forretning(int feltNr, String navn, int pris, Color bgFarve, Color tekstFarve) {
-		super(feltNr, navn, bgFarve, tekstFarve);
+		super(navn, bgFarve, tekstFarve);
 		this.pris = pris;
+		this.feltNr = feltNr;
 	}
 	
 /**
@@ -70,4 +72,9 @@ public class Felt_Forretning extends Felt {
 	public int getPris() {
 		return pris;
 	}
+
+public int getFeltNr() {
+	// TODO Auto-generated method stub
+	return feltNr;
+}
 }

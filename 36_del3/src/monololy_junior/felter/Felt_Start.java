@@ -21,8 +21,8 @@ public class Felt_Start extends Felt{
  * @param bgFarve
  * @param tekstFarve
  */
-	public Felt_Start (int feltNr, String tekst, int præmie, Color bgFarve, Color tekstFarve) {
-		super(feltNr, tekst, bgFarve, tekstFarve);
+	public Felt_Start (String tekst, int præmie, Color bgFarve, Color tekstFarve) {
+		super(tekst, bgFarve, tekstFarve);
 		this.præmie = præmie;
 		
 	}

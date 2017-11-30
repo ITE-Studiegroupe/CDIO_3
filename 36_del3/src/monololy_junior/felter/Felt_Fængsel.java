@@ -20,8 +20,8 @@ public class Felt_Fængsel extends Felt{
  * @param bgFarve
  * @param tekstFarve
  */
-	public Felt_Fængsel(int feltNr, String tekst, boolean erFængsel, Color bgFarve, Color tekstFarve) {
-		super(feltNr, tekst, bgFarve, tekstFarve);
+	public Felt_Fængsel(String tekst, boolean erFængsel, Color bgFarve, Color tekstFarve) {
+		super(tekst, bgFarve, tekstFarve);
 		this.erFængsel = erFængsel;
 	}
 /**

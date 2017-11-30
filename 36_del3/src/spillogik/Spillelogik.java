@@ -11,8 +11,6 @@ import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
 import monololy_junior.felter.Felt_Fængsel;
-import monololy_junior.felter.Felt_Start;
-
 /**
  * Klasse: Spillelogik
  * @author Gruppe_36

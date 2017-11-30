@@ -17,7 +17,7 @@ public class Felt_Helle extends Felt {
  * @param bgFarve
  * @param tekstFarve
  */
-	public Felt_Helle(int feltNr, String tekst, Color bgFarve, Color tekstFarve) {
-		super(feltNr, tekst, bgFarve, tekstFarve);
+	public Felt_Helle(String tekst, Color bgFarve, Color tekstFarve) {
+		super(tekst, bgFarve, tekstFarve);
 	}
 }
