@@ -35,7 +35,7 @@ public class Controller {
 		for (int i = 0; i < antalSpillere; i++) {
 			navne[i] = gui.visIndtastNavn();
 			farver[i] = gui.visVælgFarve(navne[i]);
-		}
+		}	
 		spillere = new SpillerListe(antalSpillere, 30, navne, farver);
 		gui.skabSpillere(spillere);
 
