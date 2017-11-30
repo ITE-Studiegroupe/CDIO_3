@@ -1,8 +1,6 @@
 package monololy_junior;
 
 import java.awt.Color;
-
-import gui.GUIFører;
 import monololy_junior.felter.Felt;
 import monololy_junior.felter.Felt_Chance;
 import monololy_junior.felter.Felt_Forretning;
@@ -118,6 +116,11 @@ public class Plade {
 		return chancekort[trukketChancekort];
 
 		}
+		
+		/**
+		 * Returnerer 
+		 * @return
+		 */
 		
 		public Felt[] getFelter() {
 			return felter;

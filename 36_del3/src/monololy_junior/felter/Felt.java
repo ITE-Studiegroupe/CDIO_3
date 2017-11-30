@@ -7,9 +7,11 @@ import monololy_junior.Spiller;
  * Klassen: Felt
  * @author Gruppe 36
  * @category Information expert
- * Denne klasse har til formål holde styr på felterne.
+ * Denne abstrakte klasse har til formål holde styr på felterne og agerer som superklasse, eftersom attributterne bgFarve, 
+ * tekstFarve og FeltNavn nedarves til alle subklasserne. Den agerer også som generel felt-type ved bygning af felter i klassen 
+ * plade og i GUIFører.
  */
-public class Felt {
+abstract public class Felt {
 	
 	
 	private Color bgFarve;
