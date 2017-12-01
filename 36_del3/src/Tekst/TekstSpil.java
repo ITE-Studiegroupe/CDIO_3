@@ -1,6 +1,16 @@
 package Tekst;
 
+/**
+ * Klasse: TekstSpil
+ * @author Gruppe_36
+ * Klassen styrer teksterne til spillet
+ */
+
 public class TekstSpil {
+	
+/**
+ * 	Metoden er et string array med 6 index
+ */
 	public final static String[] TEKSTER =
 		{
 				"Vælg antal spillere.",

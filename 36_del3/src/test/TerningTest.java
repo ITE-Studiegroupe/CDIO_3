@@ -26,6 +26,7 @@ public class TerningTest {
 			int side5 = 0;
 			int side6 = 0;
 
+
 			for (int i = 0; i < 10000; i++) {
 				int fordeling = terning.kastTerning();
 		
@@ -44,6 +45,7 @@ public class TerningTest {
 				
 			}
 			int samlet = side1 + side2 + side3 + side4 + side5 + side6;
+
 
 			System.out.println("Resultat: " + side1 + " " + side2 + " " + side3 + " " + side4 + " " + side5 + " " + side6);
 			System.out.println("Samlet antal: " + samlet); //for at tjekke at der ikke kommer nogle værdier udenfor 1-6

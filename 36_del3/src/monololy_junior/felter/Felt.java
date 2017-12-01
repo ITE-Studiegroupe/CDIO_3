@@ -2,53 +2,52 @@ package monololy_junior.felter;
 
 import java.awt.Color;
 
-import monololy_junior.Spiller;
 /**
- * Denne klasse har til formål holde styr på felterne.
- * 
+ * Klassen: Felt
  * @author Gruppe 36
  * @category Information expert
- *
+ * Denne abstrakte klasse har til formål holde styr på felterne og agerer som superklasse, eftersom attributterne bgFarve, 
+ * tekstFarve og FeltNavn nedarves til alle subklasserne. Den agerer også som generel felt-type ved bygning af felter i klassen 
+ * plade og i GUIFører.
  */
-public class Felt {
+public abstract class Felt {
 	
 	
-	protected Color bgFarve;
-	protected Color tekstFarve;
-	protected String feltNavn;
-	protected int feltNr;
+	private Color bgFarve;
+	private Color tekstFarve;
+	private String feltNavn;
 
-	
-	public int getFeltNr() {
-		return feltNr;
+	public Felt(String feltNavn, Color bgFarve, Color tekstFarve) {
+		this.feltNavn = feltNavn;
+		this.bgFarve = bgFarve;
+		this.tekstFarve = tekstFarve;
 	}
+	
 
-	public void setFeltNr(int feltNr) {
-		this.feltNr = feltNr;
-	}
-
+/**
+ * Metoden returnerer bgFarve
+ * @return bgFarve
+ */
 	public Color getBgFarve() {
 		return bgFarve;
 	}
 
-	public void setBgFarve(Color bgFarve) {
-		this.bgFarve = bgFarve;
-	}
 
+/**
+ * Metoden returnerer tekstFarve
+ * @return tekstFarve
+ */
 	public Color getTekstFarve() {
 		return tekstFarve;
 	}
 
-	public void setTekstFarve(Color tekstFarve) {
-		this.tekstFarve = tekstFarve;
-	}
 
+/**
+ * Metoden returnerer feltNavn	
+ * @return feltNavn
+ */
 	public String getFeltNavn() {
 		return feltNavn;
-	}
-
-	public void setFeltNavn(String feltTekst) {
-		this.feltNavn = feltTekst;
 	}
 
 }
