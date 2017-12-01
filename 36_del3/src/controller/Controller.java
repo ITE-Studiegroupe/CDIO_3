@@ -23,15 +23,13 @@ public class Controller {
 	private SpillerListe spillere;
 	private Spiller spiller;
 	private GUIFører gui = GUIFører.getInstans();
-	private Felt[] felter;
 
 	public void spilKontrol() {
 
 		plade = new Plade(); //laver plade objekt
 		plade.bygPlade();
-		felter = plade.getFelter();
 
-		gui.skabGUI(felter);
+		gui.skabGUI(plade.getFelter());
 
 		antalSpillere = gui.visVælgAntalSpillere();
 
