@@ -14,12 +14,12 @@ public class Felt_Chance extends Felt{
 /**
  * Denne metode henter attributter til konstruktøren fra super-klassen Felt	
  * @param feltNr
- * @param tekst
+ * @param feltNavn
  * @param bgFarve
  * @param tekstFarve
  */
-	public Felt_Chance(String tekst, Color bgFarve, Color tekstFarve) {
-		super(tekst, bgFarve, tekstFarve);
+	public Felt_Chance(String feltNavn, Color bgFarve, Color tekstFarve) {
+		super(feltNavn, bgFarve, tekstFarve);
 	}
 	
 }

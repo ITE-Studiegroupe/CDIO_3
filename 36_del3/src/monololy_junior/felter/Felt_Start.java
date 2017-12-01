@@ -16,13 +16,13 @@ public class Felt_Start extends Felt{
 /**
  * Denne metode henter attributter til konstruktøren fra super-klassen Felt	
  * @param feltNr
- * @param tekst
+ * @param feltNavn
  * @param præmie
  * @param bgFarve
  * @param tekstFarve
  */
-	public Felt_Start (String tekst, int præmie, Color bgFarve, Color tekstFarve) {
-		super(tekst, bgFarve, tekstFarve);
+	public Felt_Start (String feltNavn, int præmie, Color bgFarve, Color tekstFarve) {
+		super(feltNavn, bgFarve, tekstFarve);
 		this.præmie = præmie;
 		
 	}

@@ -20,13 +20,13 @@ public class Felt_Forretning extends Felt {
 /**
  * Denne metode henter attributter til konstruktøren fra super-klassen Felt	
  * @param feltNr
- * @param navn
+ * @param feltNavn
  * @param pris
  * @param bgFarve
  * @param tekstFarve
  */
-	public Felt_Forretning(int feltNr, String navn, int pris, Color bgFarve, Color tekstFarve) {
-		super(navn, bgFarve, tekstFarve);
+	public Felt_Forretning(int feltNr, String feltNavn, int pris, Color bgFarve, Color tekstFarve) {
+		super(feltNavn, bgFarve, tekstFarve);
 		this.pris = pris;
 		this.feltNr = feltNr;
 	}
