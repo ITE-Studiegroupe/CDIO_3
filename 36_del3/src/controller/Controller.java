@@ -41,7 +41,7 @@ public class Controller {
 			if (navne[i].equals("")) navne[i] = "Spiller "+(i+1);
 			farver[i] = gui.visVælgFarve(navne[i]);
 		}	
-		spillere = new SpillerListe(antalSpillere, 30, navne, farver);
+		spillere = new SpillerListe(antalSpillere, 20, navne, farver);
 		gui.skabSpillere(spillere);
 
 		while (!spillere.spillerHarTabt()) {
