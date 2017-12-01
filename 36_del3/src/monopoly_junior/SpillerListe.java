@@ -1,4 +1,4 @@
-package monololy_junior;
+package monopoly_junior;
 
 import java.awt.Color;
 

@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import gui.GUIFører;
-import monololy_junior.Plade;
-import monololy_junior.Spiller;
-import monololy_junior.SpillerListe;
-import monololy_junior.Terning;
-import monololy_junior.felter.Felt;
+import monopoly_junior.Plade;
+import monopoly_junior.Spiller;
+import monopoly_junior.SpillerListe;
+import monopoly_junior.Terning;
+import monopoly_junior.felter.Felt;
 import spillogik.Spillelogik;
 /**
  * Controller klassen har til formål at holde spillet i gang, og sørger for spillernes interaktion med systemet. 

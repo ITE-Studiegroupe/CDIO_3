@@ -1,8 +1,8 @@
-package monololy_junior.felter;
+package monopoly_junior.felter;
 
 import java.awt.Color;
 
-import monololy_junior.Spiller;
+import monopoly_junior.Spiller;
 
 /**
  * Klassen: Felt_Forretning

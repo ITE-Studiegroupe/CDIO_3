@@ -1,12 +1,13 @@
-package monololy_junior;
+package monopoly_junior;
 
 import java.awt.Color;
-import monololy_junior.felter.Felt;
-import monololy_junior.felter.Felt_Chance;
-import monololy_junior.felter.Felt_Forretning;
-import monololy_junior.felter.Felt_Fængsel;
-import monololy_junior.felter.Felt_Helle;
-import monololy_junior.felter.Felt_Start;
+
+import monopoly_junior.felter.Felt;
+import monopoly_junior.felter.Felt_Chance;
+import monopoly_junior.felter.Felt_Forretning;
+import monopoly_junior.felter.Felt_Fængsel;
+import monopoly_junior.felter.Felt_Helle;
+import monopoly_junior.felter.Felt_Start;
 /**
  * Denne klasse har til formål at holde på informationer omkring de 24 forskellige felter 
  * og de 8 chancekort.

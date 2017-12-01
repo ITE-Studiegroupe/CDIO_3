@@ -1,4 +1,4 @@
-package monololy_junior.felter;
+package monopoly_junior.felter;
 
 import java.awt.Color;
 

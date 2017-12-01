@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="monololy_junior.SpillerListe" project="36_del3" 
-    file="/36_del3/src/monololy_junior/SpillerListe.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="monopoly_junior.SpillerListe" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/SpillerListe.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="304" width="218" x="940" y="60"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="monololy_junior.felter.Felt_Chance" project="36_del3" 
-    file="/36_del3/src/monololy_junior/felter/Felt_Chance.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="monopoly_junior.felter.Felt_Chance" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/felter/Felt_Chance.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="88" width="208" x="1238" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="monololy_junior.felter.Felt_Fængsel" project="36_del3" 
-    file="/36_del3/src/monololy_junior/felter/Felt_Fængsel.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="monopoly_junior.felter.Felt_Fængsel" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/felter/Felt_Fængsel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="124" width="264" x="1486" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="monololy_junior.Plade" project="36_del3" 
-    file="/36_del3/src/monololy_junior/Plade.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="monopoly_junior.Plade" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/Plade.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="196" width="197" x="1263" y="60"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="monololy_junior.Brik" project="36_del3" 
-    file="/36_del3/src/monololy_junior/Brik.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="monopoly_junior.Brik" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/Brik.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="250" width="169" x="498" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="monololy_junior.Konto" project="36_del3" 
-    file="/36_del3/src/monololy_junior/Konto.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="monopoly_junior.Konto" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/Konto.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="160" width="193" x="707" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -73,8 +73,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="monololy_junior.Chancekort" project="36_del3" 
-    file="/36_del3/src/monololy_junior/Chancekort.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="monopoly_junior.Chancekort" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/Chancekort.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="196" width="189" x="1263" y="574"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -91,8 +91,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="monololy_junior.Terning" project="36_del3" 
-    file="/36_del3/src/monololy_junior/Terning.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="11" language="java" name="monopoly_junior.Terning" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/Terning.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="106" width="118" x="782" y="574"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -100,8 +100,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="monololy_junior.felter.Felt_Start" project="36_del3" 
-    file="/36_del3/src/monololy_junior/felter/Felt_Start.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="monopoly_junior.felter.Felt_Start" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/felter/Felt_Start.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="124" width="210" x="1790" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -109,8 +109,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="monololy_junior.felter.Felt_Helle" project="36_del3" 
-    file="/36_del3/src/monololy_junior/felter/Felt_Helle.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="monopoly_junior.felter.Felt_Helle" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/felter/Felt_Helle.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="88" width="193" x="2040" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -118,8 +118,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="monololy_junior.felter.Felt_Forretning" project="36_del3" 
-    file="/36_del3/src/monololy_junior/felter/Felt_Forretning.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="14" language="java" name="monopoly_junior.felter.Felt_Forretning" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/felter/Felt_Forretning.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="232" width="258" x="940" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -127,8 +127,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="monololy_junior.felter.Felt" project="36_del3" 
-    file="/36_del3/src/monololy_junior/felter/Felt.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="15" language="java" name="monopoly_junior.felter.Felt" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/felter/Felt.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="195" width="157" x="1492" y="574"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -136,8 +136,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="monololy_junior.Spiller" project="36_del3" 
-    file="/36_del3/src/monololy_junior/Spiller.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="monopoly_junior.Spiller" project="36_del3" 
+    file="/36_del3/src/monopoly_junior/Spiller.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="448" width="283" x="940" y="574"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

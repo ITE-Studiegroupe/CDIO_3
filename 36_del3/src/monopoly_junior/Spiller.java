@@ -1,9 +1,9 @@
-package monololy_junior;
+package monopoly_junior;
 
 import java.awt.Color;
 import java.util.Arrays;
 
-import monololy_junior.felter.Felt_Forretning;
+import monopoly_junior.felter.Felt_Forretning;
 
 /**
  * Denne klasse har til formål styre spillerne i spillet.
