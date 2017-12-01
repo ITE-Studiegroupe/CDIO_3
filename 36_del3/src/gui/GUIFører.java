@@ -177,12 +177,6 @@ public class GUIFører {
 		
 		farverStreng.remove(i);
 		farver.remove(i);
-//		for (int i = 0; i < farver.length; i++) {
-//			if (valg.equals(farverStreng[i])) {i
-//				farve = farver[i];
-//				break;
-//			}
-//		}
 
 		return farve;
 	}
