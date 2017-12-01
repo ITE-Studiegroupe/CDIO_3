@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.Color;
+import java.util.ArrayList;
 
 import gui.GUIFører;
 import monololy_junior.Plade;
@@ -34,14 +35,17 @@ public class Controller {
 
 		antalSpillere = gui.visVælgAntalSpillere();
 
-		String[] navne = new String[antalSpillere];
+		ArrayList<String> navne = new ArrayList<String>();;
 		Color[] farver = new Color[antalSpillere];
 		for (int i = 0; i < antalSpillere; i++) {
-			navne[i] = gui.visIndtastNavn();
-			if (navne[i].equals("")) navne[i] = "Spiller "+(i+1);
-			farver[i] = gui.visVælgFarve(navne[i]);
+			String navn = gui.visIndtastNavn();
+			if (navn.equals("")) navn = "Spiller "+(i+1);
+			else if (navne.contains(navn)) navn += " "+(i+1);
+			navne.add(navn);
+			
+			farver[i] = gui.visVælgFarve(navn);
 		}	
-		spillere = new SpillerListe(antalSpillere, 20, navne, farver);
+		spillere = new SpillerListe(antalSpillere, 20, navne.toArray(new String[0]), farver);
 		gui.skabSpillere(spillere);
 
 		while (!spillere.spillerHarTabt()) {
