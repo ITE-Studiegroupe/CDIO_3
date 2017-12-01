@@ -14,16 +14,16 @@ import gui_fields.GUI_Refuge;
 import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
-import monololy_junior.Brik;
-import monololy_junior.Chancekort;
-import monololy_junior.Konto;
-import monololy_junior.Spiller;
-import monololy_junior.SpillerListe;
-import monololy_junior.felter.Felt;
-import monololy_junior.felter.Felt_Chance;
-import monololy_junior.felter.Felt_Forretning;
-import monololy_junior.felter.Felt_Fængsel;
-import monololy_junior.felter.Felt_Start;
+import monopoly_junior.Brik;
+import monopoly_junior.Chancekort;
+import monopoly_junior.Konto;
+import monopoly_junior.Spiller;
+import monopoly_junior.SpillerListe;
+import monopoly_junior.felter.Felt;
+import monopoly_junior.felter.Felt_Chance;
+import monopoly_junior.felter.Felt_Forretning;
+import monopoly_junior.felter.Felt_Fængsel;
+import monopoly_junior.felter.Felt_Start;
 
 /**
  * GUIFører singletonen håndterer og simplificerer kommunikationen med GUI'en.

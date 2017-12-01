@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import gui.GUIFører;
-import monololy_junior.Plade;
+import monopoly_junior.Plade;
 
 public class responstidTest {
 

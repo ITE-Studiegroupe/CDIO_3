@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import monololy_junior.Konto;
+import monopoly_junior.Konto;
 
 public class setKontoTest {
 

@@ -1,4 +1,4 @@
-package monololy_junior;
+package monopoly_junior;
 
 /**
  * Holder styr på pengebeholdning og håndterer en pengeoverførsel.

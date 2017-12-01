@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import monololy_junior.Terning;
+import monopoly_junior.Terning;
 
 public class TerningTest {
 

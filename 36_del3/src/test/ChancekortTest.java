@@ -4,8 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import monololy_junior.Chancekort;
-import monololy_junior.Plade;
+import monopoly_junior.Chancekort;
+import monopoly_junior.Plade;
 
 public class ChancekortTest {
 
