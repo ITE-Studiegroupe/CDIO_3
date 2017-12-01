@@ -1,6 +1,8 @@
 package gui;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import Tekst.TekstSpil;
 import gui_fields.GUI_Car;
@@ -33,6 +35,10 @@ public class GUIFører {
 	private GUI_Player[] guiSpillere;
 	private GUI gui;
 	private static final GUIFører INSTANS = new GUIFører();
+	private ArrayList<Color> farver = new ArrayList<Color>(Arrays.asList(Color.BLUE, Color.RED, Color.GREEN, Color.PINK, Color.YELLOW,
+			Color.BLACK, Color.WHITE));
+	private ArrayList<String> farverStreng = new ArrayList<String>(Arrays.asList("Blå", "Rød", "Grøn", "Pink", "Gul", "Sort", "Hvid"));
+	
 
 	/**
 	 * Privat konstruktør
@@ -162,26 +168,15 @@ public class GUIFører {
 	 */
 	public Color visVælgFarve(String navn) {
 		String besked = String.format(TekstSpil.TEKSTER[2], navn);
-		String[] farverStreng = new String[] {"Blå", "Rød", "Grøn", "Pink", "Gul", "Sort", "Hvid"};
-		Color[] farver = new Color[] {Color.BLUE, Color.RED, Color.GREEN, Color.PINK, Color.YELLOW,
-				Color.BLACK, Color.WHITE};
-		Color farve = Color.WHITE;
+		Color farve;
 
-		String valg = gui.getUserSelection(besked, 
-				farverStreng[0],
-				farverStreng[1],
-				farverStreng[2],
-				farverStreng[3],
-				farverStreng[4],
-				farverStreng[5],
-				farverStreng[6]);
+		String valg = gui.getUserSelection(besked, farverStreng.toArray(new String[0]));
 
-		for (int i = 0; i < farver.length; i++) {
-			if (valg.equals(farverStreng[i])) {
-				farve = farver[i];
-				break;
-			}
-		}
+		int i = farverStreng.indexOf(valg);
+		farve = farver.get(i);
+		
+		farverStreng.remove(i);
+		farver.remove(i);
 
 		return farve;
 	}
