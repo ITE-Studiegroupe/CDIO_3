@@ -74,7 +74,6 @@ public class Felt_Forretning extends Felt {
 	}
 
 public int getFeltNr() {
-	// TODO Auto-generated method stub
 	return feltNr;
 }
 }
