@@ -2,6 +2,8 @@ package monopoly_junior.felter;
 
 import java.awt.Color;
 
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Street;
 import monopoly_junior.Spiller;
 
 /**
@@ -75,5 +77,17 @@ public class Felt_Forretning extends Felt {
 
 	public int getFeltNr() {
 		return feltNr;
+	}
+
+	@Override
+	public GUI_Field tilGUIFelt() {
+		return new GUI_Street(
+				super.getFeltNavn(),
+				getPris()+"kr.",
+				"", 
+				getPris()+"kr.", 
+				super.getBgFarve(),
+				super.getTekstFarve()
+				);
 	}
 }

@@ -1,6 +1,7 @@
 package monopoly_junior.felter;
 
 import java.awt.Color;
+import gui_fields.GUI_Field;
 
 /**
  * Klassen: Felt
@@ -23,6 +24,7 @@ public abstract class Felt {
 		this.tekstFarve = tekstFarve;
 	}
 	
+	public abstract GUI_Field tilGUIFelt();
 
 /**
  * Metoden returnerer bgFarve

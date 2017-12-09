@@ -6,12 +6,8 @@ import java.util.Arrays;
 
 import Tekst.TekstSpil;
 import gui_fields.GUI_Car;
-import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
-import gui_fields.GUI_Jail;
 import gui_fields.GUI_Player;
-import gui_fields.GUI_Refuge;
-import gui_fields.GUI_Start;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
 import monopoly_junior.Brik;
@@ -20,10 +16,7 @@ import monopoly_junior.Konto;
 import monopoly_junior.Spiller;
 import monopoly_junior.SpillerListe;
 import monopoly_junior.felter.Felt;
-import monopoly_junior.felter.Felt_Chance;
 import monopoly_junior.felter.Felt_Forretning;
-import monopoly_junior.felter.Felt_Fængsel;
-import monopoly_junior.felter.Felt_Start;
 
 /**
  * GUIFører singletonen håndterer og simplificerer kommunikationen med GUI'en.
@@ -69,51 +62,10 @@ public class GUIFører {
 	 * @param felter Felt[]
 	 */
 	private void skabFelter(Felt[] felter) {
-
-		Felt felt;
 		guiFelter = new GUI_Field[felter.length];
-		for (int i = 0; i < guiFelter.length; i++) {
-
-			felt = felter[i];
-
-			if (felt instanceof Felt_Forretning) {
-				guiFelter[i] = new GUI_Street(
-						felt.getFeltNavn(),
-						((Felt_Forretning) felt).getPris()+"kr.",
-						"", 
-						((Felt_Forretning) felt).getPris()+"kr.", 
-						felt.getBgFarve(),
-						felt.getTekstFarve());
-			}
-			else if (felt instanceof Felt_Chance) {
-				guiFelter[i] = new GUI_Chance(
-						"?",
-						felt.getFeltNavn(),
-						"",
-						felt.getBgFarve(),
-						felt.getTekstFarve());
-			}
-			else if (felt instanceof Felt_Fængsel) {
-				guiFelter[i] = new GUI_Jail();
-				guiFelter[i].setSubText(felt.getFeltNavn());
-				guiFelter[i].setBackGroundColor(felt.getBgFarve());
-				guiFelter[i].setForeGroundColor(felt.getTekstFarve());
-			}
-			else if (felt instanceof Felt_Start) {
-				guiFelter[i] = new GUI_Start(
-						felt.getFeltNavn(),
-						"modtag "+((Felt_Start)felt).getPræmie()+"kr.",
-						"",
-						felt.getBgFarve(),
-						felt.getTekstFarve());
-			}
-			else {
-				guiFelter[i] = new GUI_Refuge();
-				guiFelter[i].setBackGroundColor(felt.getBgFarve());
-				guiFelter[i].setForeGroundColor(felt.getTekstFarve());
-				guiFelter[i].setSubText(felt.getFeltNavn());
-			}
-		}
+		
+		for (int i = 0; i < guiFelter.length; i++)
+			guiFelter[i] = felter[i].tilGUIFelt();
 	}
 
 	/**
